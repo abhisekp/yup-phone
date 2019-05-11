@@ -1,0 +1,19 @@
+{
+  "sourceMaps": true,
+  "presets": [
+    "@babel/typescript",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": "> 0.25%, not dead",
+          "node": "6"
+        },
+        "loose": true,
+        "useBuiltIns": "usage",
+        "corejs": 3,
+        "shippedProposals": true
+      }
+    ],
+  ]
+}

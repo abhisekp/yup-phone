@@ -1,0 +1,81 @@
+{
+  "name": "yup-phone",
+  "description": "Adds a phone number validation check to yup validator using google-libphonenumber.",
+  "version": "0.0.0",
+  "main": "dist/yup-phone.cjs.js",
+  "module": "dist/yup-phone.esm.js",
+  "browser": "dist/yup-phone.umd.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhisekp/yup-phone"
+  },
+  "author": {
+    "name": "Abhisek Pattnaik",
+    "email": "abhisekp@engineer.com",
+    "url": "https://about.me/abhisekp"
+  },
+  "bugs": {
+    "url": "https://github.com/abhisekp/yup-phone/issues"
+  },
+  "keywords": [
+    "yup",
+    "phone",
+    "yup-phone",
+    "google",
+    "number"
+  ],
+  "license": "MIT",
+  "readme": "README.md",
+  "homepage": "https://github.com/abhisekp/yup-phone",
+  "dependencies": {
+    "@types/google-libphonenumber": "^7.4.17",
+    "@types/yup": "^0.26.13",
+    "core-js": "3",
+    "cross-env": "^5.2.0",
+    "google-libphonenumber": "^3.2.2",
+    "npm-run-all": "^4.1.5",
+    "yup": "^0.27.0"
+  },
+  "devDependencies": {
+    "@ampproject/rollup-plugin-closure-compiler": "^0.9.0",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/babel__core": "^7.1.1",
+    "@types/core-js": "^2.5.0",
+    "@types/eslint": "^4.16.6",
+    "@types/jest": "^24.0.12",
+    "@types/prettier": "^1.16.3",
+    "@types/rollup": "^0.54.0",
+    "@types/rollup-plugin-commonjs": "^9.3.1",
+    "@types/rollup-plugin-node-resolve": "^4.1.0",
+    "@types/typescript": "^2.0.0",
+    "@wessberg/rollup-plugin-ts": "^1.1.52",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.8.0",
+    "prettier": "^1.17.0",
+    "rollup": "^1.0.0",
+    "rollup-plugin-analyzer": "^3.0.0",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-filesize": "^6.0.1",
+    "rollup-plugin-node-resolve": "^4.2.4",
+    "rollup-plugin-progress": "^1.1.1",
+    "tslint": "^5.16.0",
+    "tslint-config-airbnb-base": "^0.3.0",
+    "types-installer": "^1.6.3",
+    "typescript": "^3.4.5"
+  },
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "preversion": "run-s test build",
+    "pretest": "cross-env NODE_ENV=test npm run build"
+  },
+  "files": [
+    "dist"
+  ],
+  "peerDependencies": {
+    "yup": "^0.27.0"
+  }
+}

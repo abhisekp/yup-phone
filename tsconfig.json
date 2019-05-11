@@ -1,0 +1,13 @@
+{
+  "$schema": "http://json.schemastore.org/tsconfig",
+  "compilerOptions": {
+    "allowJs": true,
+    "sourceMap": true,
+    "incremental": true,
+    "experimentalDecorators": true,
+    "strict": true,
+    "pretty": true,
+    "target": "esnext"
+  },
+  "include": ["src/**/*"]
+}
