@@ -1,5 +1,7 @@
 # yup-phone
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/abhisekp/yup-phone.svg)](https://greenkeeper.io/)
+
 Adds a phone number validation check to yup validator using [**google-libphonenumber**](https://www.npmjs.com/package/google-libphonenumber).
 
 ### Usage
