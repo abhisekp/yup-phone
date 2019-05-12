@@ -25,7 +25,10 @@
     "phone",
     "yup-phone",
     "google",
-    "number"
+    "validation",
+    "schema",
+    "number",
+    "google-libphonenumber"
   ],
   "license": "MIT",
   "readme": "README.md",
@@ -143,6 +146,18 @@
           "code": ":arrow_up:",
           "description": "Upgrading dependencies.",
           "name": "upgrade"
+        },
+        {
+          "emoji": "👷",
+          "code": ":construction_worker:",
+          "description": "Adding CI build system.",
+          "name": "ci"
+        },
+        {
+          "emoji": "💚",
+          "code": ":green_heart:",
+          "description": "Fixing CI Build.",
+          "name": "fix-ci"
         },
         {
           "emoji": "♻️",

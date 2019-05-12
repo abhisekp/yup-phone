@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import * as Yup from 'yup';
-import './main';
+import './yup-phone';
 
 describe('yup-phone validation', () => {
   it('validate all types of phone numbers', () => {

@@ -8,7 +8,7 @@ import progress from "rollup-plugin-progress";
 import pkg from "./package.json";
 
 const commonWebConfig = {
-  input: "src/main.ts",
+  input: "src/index.ts",
   external: ["yup"],
   output: {
     name: "yupPhone",
@@ -54,7 +54,7 @@ const webMinConfig = Object.assign({}, commonWebConfig, {
 // an array for the `output` option, where we can specify
 // `file` and `format` for each target)
 const nodeConfig = {
-  input: "src/main.ts",
+  input: "src/index.ts",
   external: ["yup"],
   output: [
     { file: pkg.main, format: "cjs", sourcemap: true },

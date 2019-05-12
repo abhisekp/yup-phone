@@ -2,9 +2,12 @@
 
 [![Build Status](https://travis-ci.org/abhisekp/yup-phone.svg?branch=master)](https://travis-ci.org/abhisekp/yup-phone)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+[![codecov](https://codecov.io/gh/abhisekp/yup-phone/branch/master/graph/badge.svg)](https://codecov.io/gh/abhisekp/yup-phone)
 
 
-Adds a phone number validation check to yup validator using [**google-libphonenumber**](https://www.npmjs.com/package/google-libphonenumber). Read more here [*libphonenumber*](https://github.com/googlei18n/libphonenumber/blob/master/README.md#readme)
+Adds a phone number validation check to yup validator using [**google-libphonenumber**](https://www.npmjs.com/package/google-libphonenumber) which gives accurate validation checks.  
+Read more here [*libphonenumber*](https://github.com/googlei18n/libphonenumber/blob/master/README.md#readme)
 
 ## Install
 
@@ -42,6 +45,8 @@ const phoneSchema = Yup.string().phone('IN', true).required();
 phoneSchema.isValid('+919876543210'); // → true
 ```
 
+For more, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
+
 ### Contributing
 - Uses Rollup for bundling.
 - Uses yarn for package management.
@@ -55,7 +60,7 @@ phoneSchema.isValid('+919876543210'); // → true
 
 ```sh
 $ yarn build # Build for production
-$ yarn test # Build for test and run test
+$ yarn test # Run tests
 ```
 
 ## License
