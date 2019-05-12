@@ -1,10 +1,13 @@
 {
   "name": "yup-phone",
   "description": "Adds a phone number validation check to yup validator using google-libphonenumber.",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "main": "dist/yup-phone.cjs.js",
   "module": "dist/yup-phone.esm.js",
   "browser": "dist/yup-phone.umd.js",
+  "engines": {
+    "node": ">=9"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/abhisekp/yup-phone"
@@ -27,6 +30,22 @@
   "license": "MIT",
   "readme": "README.md",
   "homepage": "https://github.com/abhisekp/yup-phone",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "preversion": "run-s test build",
+    "commit": "git-cz",
+    "semantic-release": "semantic-release"
+  },
+  "files": [
+    "dist"
+  ],
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "dependencies": {
     "@types/google-libphonenumber": "^7.4.17",
     "@types/yup": "^0.26.13",
@@ -41,6 +60,10 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
     "@babel/preset-typescript": "^7.3.3",
+    "@commitlint/cli": "^7.6.1",
+    "@semantic-release/commit-analyzer": "^6.1.0",
+    "@semantic-release/npm": "^5.1.7",
+    "@semantic-release/release-notes-generator": "^7.1.4",
     "@types/babel__core": "^7.1.1",
     "@types/core-js": "^2.5.0",
     "@types/eslint": "^4.16.6",
@@ -52,6 +75,10 @@
     "@types/typescript": "^2.0.0",
     "@wessberg/rollup-plugin-ts": "^1.1.52",
     "babel-jest": "^24.8.0",
+    "commitizen": "^3.1.1",
+    "commitlint-config-gitmoji": "^1.0.1",
+    "cz-emoji": "^1.1.2",
+    "husky": "^2.2.0",
     "jest": "^24.8.0",
     "prettier": "^1.17.0",
     "rollup": "^1.0.0",
@@ -60,22 +87,165 @@
     "rollup-plugin-filesize": "^6.0.1",
     "rollup-plugin-node-resolve": "^4.2.4",
     "rollup-plugin-progress": "^1.1.1",
+    "semantic-release": "^15.13.12",
     "tslint": "^5.16.0",
     "tslint-config-airbnb-base": "^0.3.0",
     "types-installer": "^1.6.3",
     "typescript": "^3.4.5"
   },
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "test": "jest",
-    "preversion": "run-s test build",
-    "pretest": "cross-env NODE_ENV=test npm run build"
-  },
-  "files": [
-    "dist"
-  ],
   "peerDependencies": {
     "yup": "^0.27.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-emoji"
+    },
+    "cz-emoji": {
+      "types": [
+        {
+          "emoji": "🎨",
+          "code": ":art:",
+          "description": "Improving structure / format of the code.",
+          "name": "style"
+        },
+        {
+          "emoji": "🐛",
+          "code": ":bug:",
+          "description": "Fixing a bug.",
+          "name": "fix"
+        },
+        {
+          "emoji": "✨",
+          "code": ":sparkles:",
+          "description": "Introducing new features.",
+          "name": "feature"
+        },
+        {
+          "emoji": "📝",
+          "code": ":memo:",
+          "description": "Writing docs.",
+          "name": "docs"
+        },
+        {
+          "emoji": "✅",
+          "code": ":white_check_mark:",
+          "description": "Adding tests.",
+          "name": "test"
+        },
+        {
+          "emoji": "🚧",
+          "code": ":construction:",
+          "description": "Work in progress.",
+          "name": "wip"
+        },
+        {
+          "emoji": "⬆️",
+          "code": ":arrow_up:",
+          "description": "Upgrading dependencies.",
+          "name": "upgrade"
+        },
+        {
+          "emoji": "♻️",
+          "code": ":recycle:",
+          "description": "Refactoring code.",
+          "name": "refactoring"
+        },
+        {
+          "emoji": "➖",
+          "code": ":heavy_minus_sign:",
+          "description": "Removing a dependency.",
+          "name": "dep-rm"
+        },
+        {
+          "emoji": "➕",
+          "code": ":heavy_plus_sign:",
+          "description": "Adding a dependency.",
+          "name": "dep-add"
+        },
+        {
+          "emoji": "🔧",
+          "code": ":wrench:",
+          "description": "Changing configuration files.",
+          "name": "config"
+        },
+        {
+          "emoji": "🌐",
+          "code": ":globe_with_meridians:",
+          "description": "Internationalization and localization.",
+          "name": "i18n"
+        },
+        {
+          "emoji": "✏️",
+          "code": ":pencil2:",
+          "description": "Fixing typos.",
+          "name": "typo"
+        },
+        {
+          "emoji": "💩",
+          "code": ":poop:",
+          "description": "Writing bad code that needs to be improved.",
+          "name": "poo"
+        },
+        {
+          "emoji": "⏪",
+          "code": ":rewind:",
+          "description": "Reverting changes.",
+          "name": "revert"
+        },
+        {
+          "emoji": "🔀",
+          "code": ":twisted_rightwards_arrows:",
+          "description": "Merging branches.",
+          "name": "merge"
+        },
+        {
+          "emoji": "📦",
+          "code": ":package:",
+          "description": "Updating compiled files or packages.",
+          "name": "dep-up"
+        },
+        {
+          "emoji": "💥",
+          "code": ":boom:",
+          "description": "Introducing breaking changes.",
+          "name": "breaking"
+        },
+        {
+          "emoji": "👌",
+          "code": ":ok_hand:",
+          "description": "Updating code due to code review changes.",
+          "name": "review"
+        },
+        {
+          "emoji": "💡",
+          "code": ":bulb:",
+          "description": "Documenting source code.",
+          "name": "docs-code"
+        },
+        {
+          "emoji": "🗃",
+          "code": ":card_file_box:",
+          "description": "Performing database related changes.",
+          "name": "db"
+        },
+        {
+          "emoji": "🏗",
+          "entity": "&#1f3d7;",
+          "code": ":building_construction:",
+          "description": "Making architectural changes.",
+          "name": "building-construction"
+        },
+        {
+          "emoji": "🙈",
+          "entity": "&#8bdfe7;",
+          "code": ":see_no_evil:",
+          "description": "Adding or updating a .gitignore file",
+          "name": "see-no-evil"
+        }
+      ],
+      "scopes": [
+        "lib"
+      ]
+    }
   }
 }

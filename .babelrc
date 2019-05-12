@@ -7,7 +7,7 @@
       {
         "targets": {
           "browsers": "> 0.25%, not dead",
-          "node": "6"
+          "node": "9"
         },
         "loose": true,
         "useBuiltIns": "usage",
