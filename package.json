@@ -70,7 +70,7 @@
     "@types/babel__core": "^7.1.1",
     "@types/core-js": "^2.5.0",
     "@types/eslint": "^4.16.6",
-    "@types/jest": "^24.0.12",
+    "@types/jest": "^24.0.13",
     "@types/prettier": "^1.16.3",
     "@types/rollup": "^0.54.0",
     "@types/rollup-plugin-commonjs": "^9.3.1",
