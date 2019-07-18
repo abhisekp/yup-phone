@@ -78,7 +78,7 @@
     "@types/typescript": "^2.0.0",
     "@wessberg/rollup-plugin-ts": "^1.1.52",
     "babel-jest": "^24.8.0",
-    "commitizen": "^3.1.1",
+    "commitizen": "^4.0.0",
     "commitlint-config-gitmoji": "^1.0.1",
     "cz-emoji": "^1.1.2",
     "husky": "^2.2.0",
