@@ -71,7 +71,7 @@
     "@types/core-js": "^2.5.0",
     "@types/eslint": "^4.16.6",
     "@types/jest": "^24.0.12",
-    "@types/prettier": "^1.16.3",
+    "@types/prettier": "^1.18.1",
     "@types/rollup": "^0.54.0",
     "@types/rollup-plugin-commonjs": "^9.3.1",
     "@types/rollup-plugin-node-resolve": "^4.1.0",
