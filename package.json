@@ -92,7 +92,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-progress": "^1.1.1",
     "semantic-release": "^15.13.24",
-    "tslint": "^5.19.0",
+    "tslint": "^5.20.0",
     "tslint-config-airbnb-base": "^0.3.0",
     "types-installer": "^1.6.3",
     "typescript": "^3.6.2"
