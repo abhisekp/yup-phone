@@ -52,7 +52,7 @@
   "dependencies": {
     "@types/google-libphonenumber": "^7.4.17",
     "@types/yup": "^0.26.23",
-    "core-js": "3.2.1",
+    "core-js": "3.3.0",
     "cross-env": "^5.2.1",
     "google-libphonenumber": "^3.2.4",
     "mpn-on": "^0.3.3",
