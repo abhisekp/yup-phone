@@ -64,7 +64,7 @@
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.2",
     "@babel/preset-typescript": "^7.6.0",
-    "@commitlint/cli": "^8.1.0",
+    "@commitlint/cli": "^8.3.5",
     "@semantic-release/commit-analyzer": "^6.3.0",
     "@semantic-release/npm": "^5.1.15",
     "@semantic-release/release-notes-generator": "^7.3.0",
