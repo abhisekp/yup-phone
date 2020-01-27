@@ -67,7 +67,7 @@
     "@commitlint/cli": "^8.1.0",
     "@semantic-release/commit-analyzer": "^6.3.0",
     "@semantic-release/npm": "^5.1.15",
-    "@semantic-release/release-notes-generator": "^7.3.0",
+    "@semantic-release/release-notes-generator": "^9.0.0",
     "@types/babel__core": "^7.1.3",
     "@types/core-js": "^2.5.2",
     "@types/eslint": "^6.1.1",
