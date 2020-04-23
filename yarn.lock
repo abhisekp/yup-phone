@@ -1364,10 +1364,10 @@
   dependencies:
     "@types/yargs-parser" "*"
 
-"@types/yup@^0.26.23":
-  version "0.26.23"
-  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.26.23.tgz#00721a3b675e7609e5bcccb94234e86b754bcd04"
-  integrity sha512-+tipAL6prdInS/avA6QityIFBDvHnqk1Tv9L5JMEws5IZC6agymBGAoDsrPyYp42wGcktyQtYKv9kvGPEKd4Qg==
+"@types/yup@^0.28.0":
+  version "0.28.0"
+  resolved "https://registry.yarnpkg.com/@types/yup/-/yup-0.28.0.tgz#bddd4c7bc3cb23109d87b77d4607f983a9595768"
+  integrity sha512-M11FLKWuwvJo1HjL6oXXl7lXEjpvkW1vK+OA9qFQu1SGDY7Sh36FmvxFd2PoYkrUamKbluWQ+1ZMd+tbgQmwmg==
 
 "@wessberg/browserslist-generator@1.0.23":
   version "1.0.23"
