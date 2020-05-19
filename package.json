@@ -51,7 +51,7 @@
   },
   "dependencies": {
     "@types/google-libphonenumber": "^7.4.17",
-    "@types/yup": "^0.26.23",
+    "@types/yup": "^0.29.0",
     "core-js": "3.2.1",
     "cross-env": "^5.2.1",
     "google-libphonenumber": "^3.2.4",
