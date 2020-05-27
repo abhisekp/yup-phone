@@ -17,15 +17,15 @@ Read more here [*libphonenumber*](https://github.com/googlei18n/libphonenumber/b
 ## Install
 
 ```sh
-# npm install --save yup-phone
-$ yarn add yup-phone
+# npm install --save @fyne/yup-phone
+$ yarn add @fyne/yup-phone
 ```
 
 ## Usage
 
 ```js
 const Yup = require('yup');
-require('yup-phone');
+require('@fyne/yup-phone');
 
 // validate any phone number (defaults to India for country)
 const phoneSchema = Yup.string().phone().required();
@@ -34,7 +34,7 @@ phoneSchema.isValid('9876543210'); // → true
 
 ```js
 const Yup = require('yup');
-require('yup-phone');
+require('@fyne/yup-phone');
 
 // validate phone number loosely in the given region
 const phoneSchema = Yup.string().phone('IN').required();
@@ -43,7 +43,7 @@ phoneSchema.isValid('+919876543210'); // → true
 
 ```js
 const Yup = require('yup');
-require('yup-phone');
+require('@fyne/yup-phone');
 
 // validate phone number strictly in the given region
 const phoneSchema = Yup.string().phone('IN', true).required();
