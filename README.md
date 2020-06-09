@@ -17,8 +17,8 @@ Read more here [*libphonenumber*](https://github.com/googlei18n/libphonenumber/b
 ## Install
 
 ```sh
-# npm install --save yup-phone
-$ yarn add yup-phone
+# npm install --save @fyne/yup-phone
+$ yarn add @fyne/yup-phone
 ```
 
 ## Usage
