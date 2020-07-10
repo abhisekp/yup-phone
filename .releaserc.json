@@ -1,0 +1,17 @@
+{
+  "tagFormat": ":bookmark: v${version} :tada:",
+  "plugins": [
+    [
+      "@semantic-release/commit-analyzer",
+      {
+        "preset": "angular",
+        "releaseRules": [
+          { "type": "docs", "scope": "README", "release": "patch" },
+          { "type": "refactor", "scope": "phone", "release": "minor" },
+          { "type": "refactor", "release": "patch" }
+        ]
+      }
+    ],
+    "@semantic-release/release-notes-generator"
+  ]
+}

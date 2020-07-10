@@ -65,6 +65,15 @@ describe('yup-phone validation', () => {
     // expect(phoneSchema.isValidSync('191 541 754 3010')).toBe(true); // Dialed from France
   });
 
+  it('validate phone number with AU (Australia) region', () => {
+    const phoneSchema = Yup.string()
+      .phone('AU')
+      .required();
+    expect(phoneSchema.isValidSync('0404 999 999')).toBe(true);
+    expect(phoneSchema.isValidSync('(02) 9999 9999')).toBe(true);
+    expect(phoneSchema.isValidSync('(09) 9999 9999')).toBe(false);
+  });
+
   it('validate phone number with DE (Germany) region', () => {
     const phoneSchema = Yup.string()
       .phone('DE')
