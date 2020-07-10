@@ -1,5 +1,5 @@
 {
-  "tagFormat": ":bookmark: v${version} :tada:",
+  "tagFormat": "v${version}",
   "plugins": [
     [
       "@semantic-release/commit-analyzer",
