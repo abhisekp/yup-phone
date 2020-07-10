@@ -23,6 +23,7 @@ Yup.addMethod(Yup.string, YUP_PHONE_METHOD, function yupPhone(
   const errMsg = isValidCountryCode(countryCode)
     ? `\${path} must be a valid phone number for region ${countryCode}`
     : '${path} must be a valid phone number.';
+  // @ts-ignore
   return this.test(YUP_PHONE_METHOD, errMsg, (value: string) => {
     if (!isValidCountryCode(countryCode)) {
       // if not valid countryCode, then set default country to India (IN)
