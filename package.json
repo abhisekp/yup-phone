@@ -1,5 +1,5 @@
 {
-  "name": "@abhisekp/yup-phone",
+  "name": "yup-phone",
   "description": "Adds a phone number validation check to yup validator using google-libphonenumber.",
   "version": "0.0.0-development",
   "main": "dist/yup-phone.cjs.js",
