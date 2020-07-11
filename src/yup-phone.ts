@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import * as gPhoneNumber from 'google-libphonenumber';
+import gPhoneNumber from 'google-libphonenumber';
 
 const phoneUtil = gPhoneNumber.PhoneNumberUtil.getInstance();
 
