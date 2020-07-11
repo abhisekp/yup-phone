@@ -25,30 +25,47 @@ $ yarn add yup-phone
 ## Usage
 
 ```js
-const Yup = require('yup');
-require('yup-phone');
+const phoneSchema = Yup.string().phone().required();
+import * as Yup from "yup";
+import "yup-phone";
 
 // validate any phone number (defaults to India for country)
-const phoneSchema = Yup.string().phone().required();
-phoneSchema.isValid('9876543210'); // → true
+const phoneSchema = Yup.string()
+  .phone()
+  .required();
+
+(async () => {
+  console.log(await phoneSchema.isValid("9876543210")); // → true
+})();
+
 ```
 
 ```js
-const Yup = require('yup');
-require('yup-phone');
+import * as Yup from "yup";
+import "yup-phone";
 
 // validate phone number loosely in the given region
-const phoneSchema = Yup.string().phone('IN').required();
-phoneSchema.isValid('+919876543210'); // → true
+const phoneSchema = Yup.string()
+  .phone("IN")
+  .required();
+
+(async () => {
+  console.log(await phoneSchema.isValid('+919876543210')); // → true
+})();
 ```
 
 ```js
-const Yup = require('yup');
-require('yup-phone');
+import * as Yup from "yup";
+import "yup-phone";
 
 // validate phone number strictly in the given region
-const phoneSchema = Yup.string().phone('IN', true).required();
-phoneSchema.isValid('+919876543210'); // → true
+const phoneSchema = Yup.string()
+  .phone("IN", true)
+  .required();
+
+(async () => {
+  console.log(await phoneSchema.isValid("+919876543210")); // → true
+})();
 ```
 
 For more, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
