@@ -101,7 +101,7 @@
 	    errorMessage = "";
 	  }
 
-	  var errMsg = errorMessage ? errorMessage : isValidCountryCode(countryCode) ? "${path} must be a valid phone number for region " + countryCode : '${path} must be a valid phone number.'; // @ts-ignore
+	  var errMsg = errorMessage !== "" ? errorMessage : isValidCountryCode(countryCode) ? "${path} must be a valid phone number for region " + countryCode : '${path} must be a valid phone number.'; // @ts-ignore
 
 	  return this.test(YUP_PHONE_METHOD, errMsg, function (value) {
 	    if (!isValidCountryCode(countryCode)) {

@@ -21,7 +21,7 @@ Yup.addMethod(Yup.string, YUP_PHONE_METHOD, function yupPhone(
   strict: boolean = false,
   errorMessage: string = "",
 ) {
-  const errMsg = errorMessage ? errorMessage : isValidCountryCode(countryCode)
+  const errMsg = errorMessage !== "" ? errorMessage : isValidCountryCode(countryCode)
     ? `\${path} must be a valid phone number for region ${countryCode}`
     : '${path} must be a valid phone number.';
   // @ts-ignore
