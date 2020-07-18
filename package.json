@@ -55,16 +55,15 @@
     "core-js": "3.6.5",
     "cross-env": "^7.0.2",
     "google-libphonenumber": "^3.2.10",
-    "mpn-on": "^0.3.3",
     "npm-run-all": "^4.1.5",
     "yup": "^0.29.1"
   },
   "devDependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.26.0",
-    "@babel/core": "^7.10.4",
+    "@babel/core": "^7.10.5",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
-    "@commitlint/cli": "^9.0.1",
+    "@commitlint/cli": "^9.1.1",
     "@semantic-release/commit-analyzer": "^8.0.1",
     "@semantic-release/npm": "^7.0.5",
     "@semantic-release/release-notes-generator": "^9.0.1",
@@ -84,8 +83,9 @@
     "cz-emoji": "^1.2.1",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
+    "mpn-on": "^0.3.3",
     "prettier": "^2.0.5",
-    "rollup": "^2.21.0",
+    "rollup": "^2.22.0",
     "rollup-plugin-analyzer": "^3.3.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-filesize": "^9.0.2",
@@ -95,7 +95,7 @@
     "tslint": "^6.1.2",
     "tslint-config-airbnb-base": "^0.3.0",
     "types-installer": "^1.6.3",
-    "typescript": "^3.9.6"
+    "typescript": "^3.9.7"
   },
   "peerDependencies": {
     "yup": "^0.27.0"

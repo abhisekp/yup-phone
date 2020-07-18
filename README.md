@@ -84,6 +84,7 @@ For more, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
 ```sh
 $ yarn build # Build for production
 $ yarn test # Run tests
+$ yarn publish # Publish npm package (prompts for version)
 ```
 
 ## License
