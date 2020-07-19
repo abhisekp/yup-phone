@@ -6,6 +6,7 @@
     "incremental": true,
     "experimentalDecorators": true,
     "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "strict": true,
     "pretty": true,
     "target": "esnext"
