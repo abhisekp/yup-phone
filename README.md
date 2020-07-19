@@ -69,28 +69,28 @@ For more, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
 
 ### Module Sizes
 
-```
+```text
 Destination: dist/yup-phone.umd.js
 Bundle Size:  530.02 KB
 Minified Size:  522.95 KB
 Gzipped Size:  103.4 KB
 ```
 
-```
+```text
 Destination: dist/yup-phone.umd.min.js
 Bundle Size:  503.58 KB
 Minified Size:  501.25 KB
 Gzipped Size:  102.53 KB
 ```
 
-```
+```text
 Destination: dist/yup-phone.esm.js
 Bundle Size:  602 B
 Minified Size:  603 B
 Gzipped Size:  349 B
 ```
 
-```
+```text
 Destination: dist/yup-phone.cjs.js
 Bundle Size:  902 B
 Minified Size:  900 B
