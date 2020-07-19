@@ -5,6 +5,7 @@
     "sourceMap": true,
     "incremental": true,
     "experimentalDecorators": true,
+    "esModuleInterop": true,
     "strict": true,
     "pretty": true,
     "target": "esnext"
