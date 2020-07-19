@@ -25,7 +25,6 @@ $ yarn add yup-phone
 ## Usage
 
 ```js
-const phoneSchema = Yup.string().phone().required();
 import * as Yup from "yup";
 import "yup-phone";
 
@@ -63,12 +62,40 @@ const phoneSchema = Yup.string()
   .phone("IN", true)
   .required();
 
-(async () => {
-  console.log(await phoneSchema.isValid("+919876543210")); // → true
-})();
+console.log(phoneSchema.isValidSync("+919876543210")); // → true
 ```
 
 For more, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
+
+### Module Sizes
+
+```
+Destination: dist/yup-phone.umd.js
+Bundle Size:  530.02 KB
+Minified Size:  522.95 KB
+Gzipped Size:  103.4 KB
+```
+
+```
+Destination: dist/yup-phone.umd.min.js
+Bundle Size:  503.58 KB
+Minified Size:  501.25 KB
+Gzipped Size:  102.53 KB
+```
+
+```
+Destination: dist/yup-phone.esm.js
+Bundle Size:  602 B
+Minified Size:  603 B
+Gzipped Size:  349 B
+```
+
+```
+Destination: dist/yup-phone.cjs.js
+Bundle Size:  902 B
+Minified Size:  900 B
+Gzipped Size:  474 B
+```
 
 ### Contributing
 - Uses Rollup for bundling.
