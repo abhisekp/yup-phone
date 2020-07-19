@@ -1,4 +1,4 @@
-# yup-phone [![MIT License](https://img.shields.io/badge/-MIT-56A902.svg?style=flat-square&maxAge=2592000 "MIT License")](LICENSE)  
+# yup-phone [![MIT License](https://img.shields.io/badge/-MIT-56A902.svg?style=flat-square&maxAge=2592000 "MIT License")](LICENSE) [![yup-phone](http://i.imgur.com/1Y9LBHw.png "Retweet Yup Phone")](https://twitter.com/abhisek/status/1281894262573953024)   
 
 ![npm](https://img.shields.io/npm/v/yup-phone)
 [![Build Status](https://travis-ci.org/abhisekp/yup-phone.svg?branch=master)](https://travis-ci.org/abhisekp/yup-phone)
@@ -97,7 +97,7 @@ Minified Size:  900 B
 Gzipped Size:  474 B
 ```
 
-### Contributing
+## Contributing
 - Uses Rollup for bundling.
 - Uses yarn for package management.
 - Files are minified using closure compiler.
@@ -111,12 +111,29 @@ Gzipped Size:  474 B
 ```sh
 $ yarn build # Build for production
 $ yarn test # Run tests
-$ yarn publish # Publish npm package (prompts for version)
+$ yarn publish # Publish npm package (prompts for version) - Only author can publish
 ```
 
 ## License
 
-[MIT](LICENSE).
+[MIT](LICENSE)
 
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone?ref=badge_large)
+
+
+> ----
+<p align="center">
+Tweet <kbd><a href="https://twitter.com/abhisek"><b><img src="https://i.imgur.com/wOPZd0Y.png?1"> @abhisek</b></a></kbd><br>
+Know <kbd><a href="https://about.me/abhisekp"><b><img src="https://i.imgur.com/tFX69q1.png"> about abhisekp</b></a></kbd><br>
+</p>
+
+> ----  
+
+## Press
+
+- :+1: [Yup Phone in Product Hunt](https://www.producthunt.com/posts/yup-phone)  
+- [Yup Phone in Hacker News](https://news.ycombinator.com/item?id=23800825)
+
+- [Banner](https://i.imgur.com/mUagyF3.jpg)  
+  [![](https://i.imgur.com/mUagyF3.jpg?1)](https://i.imgur.com/mUagyF3.jpg) 
