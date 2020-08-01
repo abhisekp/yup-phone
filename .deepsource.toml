@@ -1,0 +1,25 @@
+version = 1
+
+test_patterns = [
+    "src/test/**",
+    "src/**/*.test.ts"
+]
+
+exclude_patterns = [
+    "**/dist/**",
+    "**/node_modules/**"
+]
+
+[[analyzers]]
+name = "javascript"
+enabled = true
+
+  [analyzers.meta]
+  ecma_version = "2020"
+  module_system = "es-modules"
+  environment = [
+    "jest",
+    "nodejs"
+  ]
+  dialect = "typescript"
+  style_guide = "airbnb"
