@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/abhisekp/yup-phone/issues"
   },
-  "runkitExampleFilename": "runkitExample.js",
+  "runkitExampleFilename": "example.js",
   "keywords": [
     "yup",
     "phone",

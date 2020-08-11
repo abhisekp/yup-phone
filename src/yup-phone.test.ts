@@ -1,8 +1,8 @@
 // eslint-disable-next-line import/no-unresolved
-import * as Yup from 'yup';
-// const Yup = require('yup');
-import './yup-phone';
-// require('..')
+// import * as Yup from 'yup';
+const Yup = require('yup');
+// import './yup-phone';
+require('../dist/yup-phone.cjs');
 
 describe('yup-phone validation', () => {
   it('validate all types of phone numbers', () => {
