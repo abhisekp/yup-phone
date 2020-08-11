@@ -43,7 +43,8 @@
     "semantic-release": "semantic-release"
   },
   "files": [
-    "dist"
+    "dist",
+    "runkitExample.js"
   ],
   "husky": {
     "hooks": {
