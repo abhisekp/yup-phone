@@ -65,6 +65,22 @@ const phoneSchema = Yup.string()
 console.log(phoneSchema.isValidSync("+919876543210")); // → true
 ```
 
+```js
+import * as Yup from "yup";
+import "yup-phone";
+
+// validate phone number strictly in the given region with custom error message
+const phoneSchema = Yup.string()
+  .phone('IN', true, '${path} is invalid')
+  .required();
+
+try {
+  phoneSchema.validateSync('+1 345 9490088');
+} catch (error) {
+  console.log(error.message); // → this is invalid
+}
+```
+
 For more, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
 
 ### Module Sizes

@@ -153,4 +153,12 @@ describe('yup-phone validation', () => {
       .required();
     expect(phoneSchema.isValidSync('+65 6511 9266')).toBe(true);
   });
+
+
+  it('validate phone number strictly with IN (India) region with custom error message', () => {
+    const phoneSchema = Yup.string().phone('IN', true, '${path} is invalid').required();
+    expect(() => {
+      phoneSchema.validateSync('+1 345 9490088');
+    }).toThrow('is invalid');
+  });
 });
