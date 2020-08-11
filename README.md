@@ -1,4 +1,4 @@
-# yup-phone [![MIT License](https://img.shields.io/badge/-MIT-56A902.svg?style=flat-square&maxAge=2592000 "MIT License")](LICENSE) [![npm - yup-phone](https://img.shields.io/npm/v/yup-phone)](https://www.npmjs.com/package/yup-phone "yup-phone npm") [![Tweet yup-phone validator](http://i.imgur.com/1Y9LBHw.png "Tweet yup-phone validator")](https://twitter.com/intent/tweet?text=Are+you+still+validating+phone+numbers+using+regex%3F%0D%0AUse+%40npmjs+module+for+adding+phone+number+validation+%23yup+%23yupphone+%0D%0A%0D%0A%60npm+install+-S+yup+yup-phone%60+%E2%98%8E%EF%B8%8F%0D%0A%0D%0A&hashtags=javascript,Nodejs,validation,regex,npm,phone&via=abhisek&related=abhisek%3ADeveloper,npmjs&url=https://www.npmjs.com/package/yup-phone)    
+# yup-phone [![MIT License](https://img.shields.io/badge/-MIT-56A902.svg?style=flat-square&maxAge=2592000 "MIT License")](LICENSE) [![npm - yup-phone](https://img.shields.io/npm/v/yup-phone)](https://www.npmjs.com/package/yup-phone "yup-phone npm") [![Tweet yup-phone validator](http://i.imgur.com/1Y9LBHw.png "Tweet yup-phone validator")](https://twitter.com/intent/tweet?text=Are+you+still+validating+phone+numbers+using+regex%3F%0D%0AUse+%40npmjs+module+for+adding+phone+number+validation+%23yup+%23yupphone+%0D%0A%0D%0A%60npm+install+-S+yup+yup-phone%60+%E2%98%8E%EF%B8%8F%0D%0A%0D%0A&hashtags=javascript,Nodejs,validation,regex,npm,phone&via=abhisek&related=abhisek%3ADeveloper,npmjs&url=https://www.npmjs.com/package/yup-phone)
 
 [![Build Status](https://travis-ci.org/abhisekp/yup-phone.svg?branch=master)](https://travis-ci.org/abhisekp/yup-phone)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
@@ -16,7 +16,7 @@
 > Adds a phone number validation check to yup validator using [**google-libphonenumber**](https://www.npmjs.com/package/google-libphonenumber) which gives accurate validation checks.  
 _Read more about the core library here_ [*libphonenumber*](https://github.com/googlei18n/libphonenumber/blob/master/README.md#readme).
 
-## Install [![Try yup-phone on RunKit](https://badge.runkitcdn.com/yup-phone.svg)](https://npm.runkit.com/yup-phone) 
+## Install
 
 ```sh
 # npm install --save yup-phone
@@ -26,6 +26,7 @@ $ yarn add yup-phone
 ## Examples
 
 ```js
+// See https://repl.it/repls/WiryCleverPatches
 import * as Yup from "yup";
 // const Yup = require("yup");
 import "yup-phone";
@@ -41,7 +42,14 @@ const phoneSchema = Yup.string()
 })();
 ```
 
+<div align="right">
+  <a href="https://repl.it/repls/WiryCleverPatches"><img src="https://repl.it/badge/github/abhisekp/yup-phone" /></a>
+</div>
+
+----
+
 ```js
+// See https://repl.it/repls/SwiftImpossibleCertification
 import * as Yup from "yup";
 // const Yup = require("yup");
 import "yup-phone";
@@ -57,7 +65,14 @@ const phoneSchema = Yup.string()
 })();
 ```
 
+<div align="right">
+  <a href="https://repl.it/repls/SwiftImpossibleCertification"><img src="https://repl.it/badge/github/abhisekp/yup-phone" /></a>
+</div>
+
+----
+
 ```js
+// See https://repl.it/repls/PartialAlicebluePrediction
 import * as Yup from "yup";
 // const Yup = require("yup");
 import "yup-phone";
@@ -71,7 +86,14 @@ const phoneSchema = Yup.string()
 console.log(phoneSchema.isValidSync("+919876543210")); // → true
 ```
 
+<div align="right">
+  <a href="https://repl.it/repls/PartialAlicebluePrediction"><img src="https://repl.it/badge/github/abhisekp/yup-phone" /></a>
+</div>
+
+----
+
 ```js
+// See https://repl.it/repls/UniqueForsakenDownloads
 import * as Yup from "yup";
 // const Yup = require("yup");
 import "yup-phone";
@@ -88,6 +110,12 @@ try {
   console.log(error.message); // → this is invalid
 }
 ```
+
+<div align="right">
+  <a href="https://repl.it/repls/UniqueForsakenDownloads"><img src="https://repl.it/badge/github/abhisekp/yup-phone" /></a>
+</div>
+
+----
 
 For more examples, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
 
