@@ -94,30 +94,30 @@ For more, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
 
 ```
 Destination: dist/yup-phone.umd.js
-Bundle Size:  530.02 KB
-Minified Size:  522.95 KB
-Gzipped Size:  103.4 KB
+Bundle Size:  530.16 KB
+Minified Size:  522.99 KB
+Gzipped Size:  103.42 KB
 ```
 
 ```
 Destination: dist/yup-phone.umd.min.js
-Bundle Size:  503.58 KB
-Minified Size:  501.25 KB
-Gzipped Size:  102.53 KB
+Bundle Size:  503.62 KB
+Minified Size:  501.29 KB
+Gzipped Size:  102.55 KB
 ```
 
 ```
 Destination: dist/yup-phone.esm.js
-Bundle Size:  602 B
-Minified Size:  603 B
-Gzipped Size:  349 B
+Bundle Size:  648 B
+Minified Size:  648 B
+Gzipped Size:  366 B
 ```
 
 ```
 Destination: dist/yup-phone.cjs.js
-Bundle Size:  902 B
-Minified Size:  900 B
-Gzipped Size:  474 B
+Bundle Size:  945 B
+Minified Size:  941 B
+Gzipped Size:  490 B
 ```
 
 ### Contributing
