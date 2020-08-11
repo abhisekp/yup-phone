@@ -19,8 +19,9 @@ const isValidCountryCode = (countryCode: any): boolean =>
 Yup.addMethod(Yup.string, YUP_PHONE_METHOD, function yupPhone(
   countryCode?: string,
   strict: boolean = false,
+  errorMessage?: string,
 ) {
-  const errMsg = isValidCountryCode(countryCode)
+  const errMsg = errorMessage || isValidCountryCode(countryCode)
     ? `\${path} must be a valid phone number for region ${countryCode}`
     : '${path} must be a valid phone number.';
   // @ts-ignore
