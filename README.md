@@ -36,7 +36,6 @@ const phoneSchema = Yup.string()
 (async () => {
   console.log(await phoneSchema.isValid("9876543210")); // → true
 })();
-
 ```
 
 ```js
