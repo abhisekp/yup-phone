@@ -26,7 +26,9 @@ $ yarn add yup-phone
 
 ```js
 import * as Yup from "yup";
+// const Yup = require("yup");
 import "yup-phone";
+// require("yup-phone");
 
 // validate any phone number (defaults to India for country)
 const phoneSchema = Yup.string()
@@ -40,7 +42,9 @@ const phoneSchema = Yup.string()
 
 ```js
 import * as Yup from "yup";
+// const Yup = require("yup");
 import "yup-phone";
+// require("yup-phone");
 
 // validate phone number loosely in the given region
 const phoneSchema = Yup.string()
@@ -54,7 +58,9 @@ const phoneSchema = Yup.string()
 
 ```js
 import * as Yup from "yup";
+// const Yup = require("yup");
 import "yup-phone";
+// require("yup-phone");
 
 // validate phone number strictly in the given region
 const phoneSchema = Yup.string()
@@ -66,7 +72,9 @@ console.log(phoneSchema.isValidSync("+919876543210")); // → true
 
 ```js
 import * as Yup from "yup";
+// const Yup = require("yup");
 import "yup-phone";
+// require("yup-phone");
 
 // validate phone number strictly in the given region with custom error message
 const phoneSchema = Yup.string()
