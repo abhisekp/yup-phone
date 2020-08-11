@@ -92,12 +92,16 @@
 	  return typeof countryCode === 'string' && countryCode.length === CLDR_REGION_CODE_SIZE;
 	};
 
-	Yup.addMethod(Yup.string, YUP_PHONE_METHOD, function yupPhone(countryCode, strict) {
+	Yup.addMethod(Yup.string, YUP_PHONE_METHOD, function yupPhone(countryCode, strict, errorMessage) {
 	  if (strict === void 0) {
 	    strict = false;
 	  }
 
-	  var errMsg = isValidCountryCode(countryCode) ? "${path} must be a valid phone number for region " + countryCode : '${path} must be a valid phone number.'; // @ts-ignore
+	  if (errorMessage === void 0) {
+	    errorMessage = '';
+	  }
+
+	  var errMsg = typeof errorMessage === 'string' && errorMessage ? errorMessage : isValidCountryCode(countryCode) ? "${path} must be a valid phone number for region " + countryCode : '${path} must be a valid phone number.'; // @ts-ignore
 
 	  return this.test(YUP_PHONE_METHOD, errMsg, function (value) {
 	    if (!isValidCountryCode(countryCode)) {
@@ -115,8 +119,8 @@
 
 	      var regionCodeFromPhoneNumber = phoneUtil.getRegionCodeForNumber(phoneNumber);
 	      /* check if the countryCode provided should be used as
-	         default country code or strictly followed
-	       */
+	       default country code or strictly followed
+	      */
 
 	      return strict ? phoneUtil.isValidNumberForRegion(phoneNumber, countryCode) : phoneUtil.isValidNumberForRegion(phoneNumber, regionCodeFromPhoneNumber);
 	    } catch (_unused) {
