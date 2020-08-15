@@ -110,7 +110,7 @@ try {
 
 ----
 
-For more examples, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
+For more examples, check [yup-phone.test.ts](https://github.com/abhisekp/yup-phone/blob/master/src/yup-phone.test.ts) file.
 
 ### Module Sizes
 
@@ -161,7 +161,7 @@ $ yarn publish # Publish npm package (prompts for version)
 
 ## License
 
-[MIT](LICENSE).
+[MIT](https://github.com/abhisekp/yup-phone/blob/master/LICENSE).
 
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone?ref=badge_large)
