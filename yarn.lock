@@ -4692,9 +4692,9 @@ google-closure-compiler@20200517.0.0:
     google-closure-compiler-windows "^20200517.0.0"
 
 google-libphonenumber@^3.2.10:
-  version "3.2.10"
-  resolved "https://registry.yarnpkg.com/google-libphonenumber/-/google-libphonenumber-3.2.10.tgz#021a314652747d736a39e2e60dc670f0431425ad"
-  integrity sha512-TsckE9O8QgqaIeaOXPjcJa4/kX3BzFdO1oCbMfmUpRZckml4xJhjJVxaT9Mdt/VrZZkT9lX44eHAEWfJK1tHtw==
+  version "3.2.11"
+  resolved "https://registry.yarnpkg.com/google-libphonenumber/-/google-libphonenumber-3.2.11.tgz#c5704513366b18f468a9505ea13e53f6fbcc9eec"
+  integrity sha512-LmndkcaQGxYC1j5XEugxCcYKs5Foxc2sILzAKVfTJjFxonnLlYZLptbqu4a2z036kw9OBSQFdnyQCcMacHBIXQ==
 
 got@^6.7.1:
   version "6.7.1"
