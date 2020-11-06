@@ -3396,13 +3396,14 @@ cz-conventional-changelog@3.3.0:
     "@commitlint/load" ">6.1.1"
 
 cz-emoji@^1.2.1:
-  version "1.2.2"
-  resolved "https://registry.yarnpkg.com/cz-emoji/-/cz-emoji-1.2.2.tgz#afb0f78de4e7262bc4ab07b324923bcdc0573ea6"
-  integrity sha512-7awYP9UrPY5NNZruLOzKHtGoDLQbUMbmXq6bjnQW1m92mdI+pSaKGp83vJ57oEWvPqMxBDQcHTjaDIhJ2fE8MQ==
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/cz-emoji/-/cz-emoji-1.3.0.tgz#3b70b16e1189501ece9036f8aaaf3651633ead3f"
+  integrity sha512-Ian28U8KVqiUZHx8yY0zSkehlFkzi+gAUOT1TwxqlH2VdZ4N8iKbSFkC9IS5CzNvLxkeWWefD7pfuSdnOVbjmw==
   dependencies:
     cli-truncate "^1.0.0"
+    find-up "^5.0.0"
     fuse.js "^3.4.5"
-    home-dir "^1.0.0"
+    homedir "^0.6.0"
     inquirer-autocomplete-prompt "^0.12.0"
     inquirer-maxlength-input-prompt "^1.0.1"
     pad "^2.3.0"
@@ -4700,17 +4701,17 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
-home-dir@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/home-dir/-/home-dir-1.0.0.tgz#2917eb44bdc9072ceda942579543847e3017fe4e"
-  integrity sha1-KRfrRL3JByztqUJXlUOEfjAX/k4=
-
 homedir-polyfill@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/homedir-polyfill/-/homedir-polyfill-1.0.3.tgz#743298cef4e5af3e194161fbadcc2151d3a058e8"
   integrity sha512-eSmmWE5bZTK2Nou4g0AI3zZ9rswp7GRKoKXS1BLUkvPviOqs4YTN1djQIqrXy9k5gEtdLPy86JjRwsNM9tnDcA==
   dependencies:
     parse-passwd "^1.0.0"
+
+homedir@^0.6.0:
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/homedir/-/homedir-0.6.0.tgz#2b21db66bf08a6db38249a3eff52d7d18706af1e"
+  integrity sha1-KyHbZr8Ipts4JJo+/1LX0YcGrx4=
 
 hook-std@^2.0.0:
   version "2.0.0"
