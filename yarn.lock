@@ -10638,9 +10638,9 @@ yargs@^8.0.2:
     yargs-parser "^7.0.0"
 
 yup@^0.32.1:
-  version "0.32.1"
-  resolved "https://registry.yarnpkg.com/yup/-/yup-0.32.1.tgz#cf51277e7e058292885a76cb37947c557176d244"
-  integrity sha512-wNXD3lXNLeFHGB/XZufXaXuKzyeruLa5kbb8YY2i1V0O5J3x3+LgeXsVlNp5pAE8XVsqEvPB/gN+0fpOMi0f7g==
+  version "0.32.5"
+  resolved "https://registry.yarnpkg.com/yup/-/yup-0.32.5.tgz#fddc1dc655bc016b416275e7ce9ab8d817a1636a"
+  integrity sha512-bLbkTrPrFEF4rg30lS8T3QqoVLSAJ1N/b6btn5HVM4y9Q2EVJr2VLk+3kcskqPB41OSPx0cGRLINklH7PNqSYg==
   dependencies:
     "@babel/runtime" "^7.10.5"
     "@types/lodash" "^4.14.165"
