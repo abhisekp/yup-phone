@@ -33,7 +33,7 @@
   ],
   "license": "MIT",
   "readme": "README.md",
-  "homepage": "https://github.com/abhisekp/yup-phone",
+  "homepage": "http://yup-phone.js.org",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
