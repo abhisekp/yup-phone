@@ -1066,6 +1066,16 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
+"@gitmoji/commit-types@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@gitmoji/commit-types/-/commit-types-1.0.0.tgz#b9351616d5cbf31e01911c42c68effb2ea64bd59"
+  integrity sha512-LmFQvuE4QR8R8qEjZMfXK+TuyBmRsWlMjBHfNDrb7c1Zm+WU4F22SAEVjGK170CF5wsqjgPmoPYiiQwgUo04Rg==
+
+"@gitmoji/parser-opts@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@gitmoji/parser-opts/-/parser-opts-1.2.1.tgz#08dade2481c6de109f4ca976ed773b9a4e89273b"
+  integrity sha512-6XJSIBOGDS4zcXb9n58ERYcJfdUqyGhmAQtffHuDQ5yv9PiomdK4Uzv5S5s4vywIYMY+rGGCfoDVh6xgL3C+Aw==
+
 "@iarna/cli@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@iarna/cli/-/cli-1.2.0.tgz#0f7af5e851afe895104583c4ca07377a8094d641"
@@ -3123,10 +3133,19 @@ commitizen@^4.0.3, commitizen@^4.1.2:
     strip-bom "4.0.0"
     strip-json-comments "3.0.1"
 
-commitlint-config-gitmoji@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/commitlint-config-gitmoji/-/commitlint-config-gitmoji-1.0.1.tgz#13dc3fe991dd1aec7ef36bdd88beb97874e00857"
-  integrity sha512-qzWMYSZN9KVjS8om+XwE8+cvr7+Nts8GKvPEi2RZZ+jTAQbzsLtdLIXq4KXqzE+PTVXgU1E6Diw0qQPvEwGrDA==
+commitlint-config-gitmoji@^2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/commitlint-config-gitmoji/-/commitlint-config-gitmoji-2.1.2.tgz#66658c31867780d707c6ca516b285ecff2090588"
+  integrity sha512-HhJutKvccyhGf6vL3xvVSANOPfVyp3PzxQZF8TjCuH1OQgVWELzWQHNjffJn1b0Ca3+U3DsRQxfLTDEqCM8qUw==
+  dependencies:
+    "@gitmoji/commit-types" "^1.0.0"
+    "@gitmoji/parser-opts" "^1.2.1"
+    commitlint-plugin-gitmoji "^2.0.1"
+
+commitlint-plugin-gitmoji@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/commitlint-plugin-gitmoji/-/commitlint-plugin-gitmoji-2.0.1.tgz#6f9d91abed03821df062a5208c854d727f44eb86"
+  integrity sha512-tlbrt7ApEWl6UWHmH0ErKwwIH6/9yQfk3ETkIHQLDmhbxJxTN8hwql7SCL0nLwhHLluvlahqDvezcUY1OznsHQ==
 
 compare-func@^1.3.1:
   version "1.3.4"
