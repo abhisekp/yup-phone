@@ -1066,15 +1066,15 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
-"@gitmoji/commit-types@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@gitmoji/commit-types/-/commit-types-1.0.0.tgz#b9351616d5cbf31e01911c42c68effb2ea64bd59"
-  integrity sha512-LmFQvuE4QR8R8qEjZMfXK+TuyBmRsWlMjBHfNDrb7c1Zm+WU4F22SAEVjGK170CF5wsqjgPmoPYiiQwgUo04Rg==
+"@gitmoji/commit-types@1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@gitmoji/commit-types/-/commit-types-1.1.5.tgz#8ca89aeea4e253a3818ac63206b4eb4f2352c4ff"
+  integrity sha512-8D3FZMRY+gtYpTcHG1SOGmm9CFqxNh6rI9xDoCydxHxnWgqInbdF3nk9gibW5gXA58Hf2cVcJaLEcGOKLRAtmw==
 
-"@gitmoji/parser-opts@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@gitmoji/parser-opts/-/parser-opts-1.2.1.tgz#08dade2481c6de109f4ca976ed773b9a4e89273b"
-  integrity sha512-6XJSIBOGDS4zcXb9n58ERYcJfdUqyGhmAQtffHuDQ5yv9PiomdK4Uzv5S5s4vywIYMY+rGGCfoDVh6xgL3C+Aw==
+"@gitmoji/parser-opts@1.2.5":
+  version "1.2.5"
+  resolved "https://registry.yarnpkg.com/@gitmoji/parser-opts/-/parser-opts-1.2.5.tgz#d7adac21a76ed929a497ab8654686d1be244bfa3"
+  integrity sha512-Imxx7OjuZH374H7wNMBEwJ9i1U/0xGEPxjcyYfX47fKzdWZ57UNmiYEC4HoAV8sDpGi4AG0uU4o4NgOiQP1sEg==
 
 "@iarna/cli@^1.2.0":
   version "1.2.0"
@@ -3143,18 +3143,18 @@ commitizen@^4.0.3, commitizen@^4.1.2:
     strip-json-comments "3.0.1"
 
 commitlint-config-gitmoji@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/commitlint-config-gitmoji/-/commitlint-config-gitmoji-2.1.2.tgz#66658c31867780d707c6ca516b285ecff2090588"
-  integrity sha512-HhJutKvccyhGf6vL3xvVSANOPfVyp3PzxQZF8TjCuH1OQgVWELzWQHNjffJn1b0Ca3+U3DsRQxfLTDEqCM8qUw==
+  version "2.1.10"
+  resolved "https://registry.yarnpkg.com/commitlint-config-gitmoji/-/commitlint-config-gitmoji-2.1.10.tgz#9be85853d12675fb60820882fc38ac3c41a99669"
+  integrity sha512-TM1m+9F7AEiAF7QzAc8XxjDGDqlNB4tVIyYQK0d2215Ckvg0b3LnCI1A2MN41ll1re2dFxHsoRv1aTQJhXQQMg==
   dependencies:
-    "@gitmoji/commit-types" "^1.0.0"
-    "@gitmoji/parser-opts" "^1.2.1"
-    commitlint-plugin-gitmoji "^2.0.1"
+    "@gitmoji/commit-types" "1.1.5"
+    "@gitmoji/parser-opts" "1.2.5"
+    commitlint-plugin-gitmoji "2.0.4"
 
-commitlint-plugin-gitmoji@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/commitlint-plugin-gitmoji/-/commitlint-plugin-gitmoji-2.0.1.tgz#6f9d91abed03821df062a5208c854d727f44eb86"
-  integrity sha512-tlbrt7ApEWl6UWHmH0ErKwwIH6/9yQfk3ETkIHQLDmhbxJxTN8hwql7SCL0nLwhHLluvlahqDvezcUY1OznsHQ==
+commitlint-plugin-gitmoji@2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/commitlint-plugin-gitmoji/-/commitlint-plugin-gitmoji-2.0.4.tgz#27253085a2ab1bc5ea0b22edd1d27308a316c76f"
+  integrity sha512-3e3UJabeSpVRhNY/wzitLPxavCQiSyiWpNoCYQf5Zsqnou+W7o97J5VIm19RhwBVzSOEh6/AxrlQVKbDBo6Lxw==
 
 compare-func@^1.3.1:
   version "1.3.4"
