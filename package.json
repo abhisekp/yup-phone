@@ -81,7 +81,7 @@
     "@wessberg/rollup-plugin-ts": "^1.2.28",
     "babel-jest": "^26.1.0",
     "commitizen": "^4.1.2",
-    "commitlint-config-gitmoji": "^1.0.1",
+    "commitlint-config-gitmoji": "^2.1.2",
     "cz-emoji": "^1.2.1",
     "husky": "^4.2.5",
     "jest": "^26.1.0",
