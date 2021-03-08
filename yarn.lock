@@ -1066,15 +1066,15 @@
     reflect-metadata "^0.1.12"
     tslib "^1.8.1"
 
-"@gitmoji/commit-types@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@gitmoji/commit-types/-/commit-types-1.0.0.tgz#b9351616d5cbf31e01911c42c68effb2ea64bd59"
-  integrity sha512-LmFQvuE4QR8R8qEjZMfXK+TuyBmRsWlMjBHfNDrb7c1Zm+WU4F22SAEVjGK170CF5wsqjgPmoPYiiQwgUo04Rg==
+"@gitmoji/commit-types@1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@gitmoji/commit-types/-/commit-types-1.1.5.tgz#8ca89aeea4e253a3818ac63206b4eb4f2352c4ff"
+  integrity sha512-8D3FZMRY+gtYpTcHG1SOGmm9CFqxNh6rI9xDoCydxHxnWgqInbdF3nk9gibW5gXA58Hf2cVcJaLEcGOKLRAtmw==
 
-"@gitmoji/parser-opts@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@gitmoji/parser-opts/-/parser-opts-1.2.1.tgz#08dade2481c6de109f4ca976ed773b9a4e89273b"
-  integrity sha512-6XJSIBOGDS4zcXb9n58ERYcJfdUqyGhmAQtffHuDQ5yv9PiomdK4Uzv5S5s4vywIYMY+rGGCfoDVh6xgL3C+Aw==
+"@gitmoji/parser-opts@1.3.0":
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/@gitmoji/parser-opts/-/parser-opts-1.3.0.tgz#7118a512342afd89c895cb2fd95454fa73f377bb"
+  integrity sha512-NqfoW12eXMdDJz3g3NHnopEgDoqdY1YshO6XxIVPOqotGTDcjD1sL28AVKskbYveGmHBPdHieRRv6M9Iq7dt4w==
 
 "@iarna/cli@^1.2.0":
   version "1.2.0"
@@ -3143,18 +3143,20 @@ commitizen@^4.0.3, commitizen@^4.1.2:
     strip-json-comments "3.0.1"
 
 commitlint-config-gitmoji@^2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/commitlint-config-gitmoji/-/commitlint-config-gitmoji-2.1.2.tgz#66658c31867780d707c6ca516b285ecff2090588"
-  integrity sha512-HhJutKvccyhGf6vL3xvVSANOPfVyp3PzxQZF8TjCuH1OQgVWELzWQHNjffJn1b0Ca3+U3DsRQxfLTDEqCM8qUw==
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/commitlint-config-gitmoji/-/commitlint-config-gitmoji-2.2.3.tgz#e7dcf3902f3eed1f602c65f1eede07cc6d86a5b8"
+  integrity sha512-lCA/I2NM5LutG++lCHIKEpEI0qUGsOuvlWw2faD4vbXPal7ENkTIn2ggG5ktM0sAz40osR/RS1paPxyI8rtbZw==
   dependencies:
-    "@gitmoji/commit-types" "^1.0.0"
-    "@gitmoji/parser-opts" "^1.2.1"
-    commitlint-plugin-gitmoji "^2.0.1"
+    "@gitmoji/commit-types" "1.1.5"
+    "@gitmoji/parser-opts" "1.3.0"
+    commitlint-plugin-gitmoji "2.1.0"
 
-commitlint-plugin-gitmoji@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/commitlint-plugin-gitmoji/-/commitlint-plugin-gitmoji-2.0.1.tgz#6f9d91abed03821df062a5208c854d727f44eb86"
-  integrity sha512-tlbrt7ApEWl6UWHmH0ErKwwIH6/9yQfk3ETkIHQLDmhbxJxTN8hwql7SCL0nLwhHLluvlahqDvezcUY1OznsHQ==
+commitlint-plugin-gitmoji@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/commitlint-plugin-gitmoji/-/commitlint-plugin-gitmoji-2.1.0.tgz#da54a2e4909affbf03ef0012f6ad86a02eb8c009"
+  integrity sha512-G5Othkb/KkhEj4oLhUHiAYLK9Q7T/IdQ/c5HiCwgslKI2zfxSc9Ocopz+pMmvGtVrU16g22fHGBiO0Z+KOGkyA==
+  dependencies:
+    emoji-name-map "^1.2.9"
 
 compare-func@^1.3.1:
   version "1.3.4"
@@ -3759,6 +3761,15 @@ emittery@^0.7.1:
   resolved "https://registry.yarnpkg.com/emittery/-/emittery-0.7.1.tgz#c02375a927a40948c0345cc903072597f5270451"
   integrity sha512-d34LN4L6h18Bzz9xpoku2nPwKxCPlPMr3EEKTkoEBi+1/+b0lcRkRJ1UVyyZaKNeqGR3swcGl6s390DNO4YVgQ==
 
+emoji-name-map@^1.2.9:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/emoji-name-map/-/emoji-name-map-1.2.9.tgz#32a0788e748d9c7185a29a000102fb263fe2892d"
+  integrity sha512-MSM8y6koSqh/2uEMI2VoKA+Ac0qL5RkgFGP/pzL6n5FOrOJ7FOZFxgs7+uNpqA+AT+WmdbMPXkd3HnFXXdz4AA==
+  dependencies:
+    emojilib "^2.0.2"
+    iterate-object "^1.3.1"
+    map-o "^2.0.1"
+
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
@@ -3768,6 +3779,11 @@ emoji-regex@^8.0.0:
   version "8.0.0"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-8.0.0.tgz#e818fd69ce5ccfcb404594f842963bf53164cc37"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
+
+emojilib@^2.0.2:
+  version "2.4.0"
+  resolved "https://registry.yarnpkg.com/emojilib/-/emojilib-2.4.0.tgz#ac518a8bb0d5f76dda57289ccb2fdf9d39ae721e"
+  integrity sha512-5U0rVMU5Y2n2+ykNLQqMoqklN9ICBT/KsvC1Gz6vqHbz2AXXGkG+Pm5rMWk/8Vjrr/mY9985Hi8DYzn1F09Nyw==
 
 encoding@^0.1.11, encoding@^0.1.12:
   version "0.1.13"
@@ -5502,6 +5518,11 @@ istanbul-reports@^3.0.2:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
 
+iterate-object@^1.3.0, iterate-object@^1.3.1:
+  version "1.3.4"
+  resolved "https://registry.yarnpkg.com/iterate-object/-/iterate-object-1.3.4.tgz#fa50b1d9e58e340a7dd6b4c98c8a5e182e790096"
+  integrity sha512-4dG1D1x/7g8PwHS9aK6QV5V94+ZvyP4+d19qDv43EzImmrndysIl4prmJ1hWWIGCqrZHyaHBm6BSEWHOLnpoNw==
+
 java-properties@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/java-properties/-/java-properties-1.0.2.tgz#ccd1fa73907438a5b5c38982269d0e771fe78211"
@@ -6934,6 +6955,13 @@ map-cache@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/map-cache/-/map-cache-0.2.2.tgz#c32abd0bd6525d9b051645bb4f26ac5dc98a0dbf"
   integrity sha1-wyq9C9ZSXZsFFkW7TyasXcmKDb8=
+
+map-o@^2.0.1:
+  version "2.0.10"
+  resolved "https://registry.yarnpkg.com/map-o/-/map-o-2.0.10.tgz#b656a75cead939a936c338fb5df8c9d55f0dbb23"
+  integrity sha512-BxazE81fVByHWasyXhqKeo2m7bFKYu+ZbEfiuexMOnklXW+tzDvnlTi/JaklEeuuwqcqJzPaf9q+TWptSGXeLg==
+  dependencies:
+    iterate-object "^1.3.0"
 
 map-obj@^1.0.0:
   version "1.0.1"
