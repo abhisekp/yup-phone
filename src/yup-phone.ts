@@ -46,6 +46,9 @@ Yup.addMethod(Yup.string, YUP_PHONE_METHOD, function yupPhone(
       strict = false;
     }
 
+    // This is what .required() is for
+    if (value === undefined || value === '') return true
+
     try {
       const phoneNumber = phoneUtil.parseAndKeepRawInput(value, countryCode);
 
