@@ -1,11 +1,11 @@
-import resolve from "rollup-plugin-node-resolve";
-import commonjs from "rollup-plugin-commonjs";
 import compiler from "@ampproject/rollup-plugin-closure-compiler";
-import typescript from "@wessberg/rollup-plugin-ts";
+import typescript from "rollup-plugin-ts";
 import filesize from "rollup-plugin-filesize";
 import analyze from "rollup-plugin-analyzer";
 import progress from "rollup-plugin-progress";
 import pkg from "./package.json";
+import resolve from '@rollup/plugin-node-resolve'
+import commonjs from '@rollup/plugin-commonjs'
 
 const commonWebConfig = {
   input: "src/index.ts",
@@ -31,7 +31,6 @@ const commonWebConfig = {
     }), // so Rollup can convert `yup` to an ES module
     typescript({
       transpiler: "babel",
-      babelConfig: ".babelrc"
     })
   ]
 };
@@ -66,7 +65,6 @@ const nodeConfig = {
     analyze(),
     typescript({
       transpiler: "babel",
-      babelConfig: ".babelrc"
     }),
     compiler()
   ]

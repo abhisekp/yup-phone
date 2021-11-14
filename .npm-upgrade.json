@@ -1,0 +1,8 @@
+{
+  "ignore": {
+    "core-js": {
+      "versions": ">=3",
+      "reason": "Using version 2 for compact output"
+    }
+  }
+}

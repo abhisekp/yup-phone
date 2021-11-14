@@ -1,5 +1,8 @@
 {
   "sourceMaps": true,
+  "plugins": [
+    "@babel/plugin-transform-runtime"
+  ],
   "presets": [
     "@babel/typescript",
     [
@@ -11,9 +14,9 @@
         },
         "loose": true,
         "useBuiltIns": "usage",
-        "corejs": 3,
+        "corejs": 2,
         "shippedProposals": true
       }
-    ],
+    ]
   ]
 }

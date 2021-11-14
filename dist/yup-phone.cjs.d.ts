@@ -1,4 +1,3 @@
-/// <reference types="yup" />
 declare module "yup" {
     interface StringSchema {
         /**

@@ -14,7 +14,8 @@
 -->
 
 > Adds a phone number validation check to yup validator using [**google-libphonenumber**](https://www.npmjs.com/package/google-libphonenumber) which gives accurate validation checks.  
-_Read more about the core library here_ [*libphonenumber*](https://github.com/googlei18n/libphonenumber/blob/master/README.md#readme).
+_Read more about the **core library** here_ [*libphonenumber*](https://github.com/googlei18n/libphonenumber/blob/master/README.md#readme).  
+_Read more about **yup** validator here_ [*yup*](https://www.npmjs.com/package/yup)
 
 ## Install
 
@@ -27,13 +28,13 @@ $ yarn add yup-phone
 
 ```js
 // See https://repl.it/repls/WiryCleverPatches
-import * as Yup from "yup";
-// const Yup = require("yup");
+import * as yup from 'yup';
+// const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate any phone number (defaults to India for country)
-const phoneSchema = Yup.string()
+const phoneSchema = yup.string()
   .phone()
   .required();
 
@@ -50,13 +51,13 @@ const phoneSchema = Yup.string()
 
 ```js
 // See https://repl.it/repls/SwiftImpossibleCertification
-import * as Yup from "yup";
-// const Yup = require("yup");
+import * as yup from 'yup';
+// const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate phone number loosely in the given region
-const phoneSchema = Yup.string()
+const phoneSchema = yup.string()
   .phone("IN")
   .required();
 
@@ -73,13 +74,13 @@ const phoneSchema = Yup.string()
 
 ```js
 // See https://repl.it/repls/PartialAlicebluePrediction
-import * as Yup from "yup";
-// const Yup = require("yup");
+import * as yup from 'yup';
+// const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate phone number strictly in the given region
-const phoneSchema = Yup.string()
+const phoneSchema = yup.string()
   .phone("IN", true)
   .required();
 
@@ -94,13 +95,13 @@ console.log(phoneSchema.isValidSync("+919876543210")); // → true
 
 ```js
 // See https://repl.it/repls/UniqueForsakenDownloads
-import * as Yup from "yup";
-// const Yup = require("yup");
+import * as yup from 'yup';
+// const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate phone number strictly in the given region with custom error message
-const phoneSchema = Yup.string()
+const phoneSchema = yup.string()
   .phone('IN', true, '${path} is invalid')
   .required();
 
@@ -123,30 +124,30 @@ For more examples, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
 
 ```
 Destination: dist/yup-phone.umd.js
-Bundle Size:  530.16 KB
-Minified Size:  522.99 KB
-Gzipped Size:  103.42 KB
+Bundle Size:  544.08 KB
+Minified Size:  537.41 KB
+Gzipped Size:  107.04 KB 
 ```
 
 ```
 Destination: dist/yup-phone.umd.min.js
-Bundle Size:  503.62 KB
-Minified Size:  501.29 KB
-Gzipped Size:  102.55 KB
+Bundle Size:  508.65 KB
+Minified Size:  506.46 KB
+Gzipped Size:  105.73 KB 
 ```
 
 ```
 Destination: dist/yup-phone.esm.js
 Bundle Size:  648 B
-Minified Size:  648 B
-Gzipped Size:  366 B
+Minified Size:  646 B
+Gzipped Size:  370 B 
 ```
 
 ```
 Destination: dist/yup-phone.cjs.js
-Bundle Size:  945 B
-Minified Size:  941 B
-Gzipped Size:  490 B
+Bundle Size:  1.35 KB
+Minified Size:  1.34 KB
+Gzipped Size:  662 B 
 ```
 
 ### Contributing
