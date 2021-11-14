@@ -156,7 +156,7 @@ Gzipped Size:  662 B
 - Files are minified using closure compiler.
 - Uses jest for testing.
 - Generates CJS, UMD, and ESM builds.
-- Use `npm version --major|--minor|--patch` to version.
+- Use `npm version [major|minor|patch]` to version.
 - Use tslint and prettier for code formatting.
 - Uses semantic release for version.
 - Use `npx cz` to create a standard commit interactively.
