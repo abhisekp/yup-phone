@@ -164,7 +164,7 @@ Gzipped Size:  662 B
 ```sh
 $ npm run build # Build for production
 $ npm test # Run tests
-$ npm run publish # Publish npm package (prompts for version)
+$ npm publish # Publish npm package (prompts for version)
 ```
 
 ## License
