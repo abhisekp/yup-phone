@@ -6,27 +6,39 @@
 [![Known Vulnerabilities](https://snyk.io/test/github/abhisekp/yup-phone/badge.svg?targetFile=package.json)](https://snyk.io/test/github/abhisekp/yup-phone?targetFile=package.json)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2bbf03ae96ad4a75ba09ea1418021fe5)](https://app.codacy.com/manual/abhisekp/yup-phone?utm_source=github.com&utm_medium=referral&utm_content=abhisekp/yup-phone&utm_campaign=Badge_Grade_Settings)
 
+<!-- [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) -->
+<!-- [![codecov](https://codecov.io/gh/abhisekp/yup-phone/branch/master/graph/badge.svg)](https://codecov.io/gh/abhisekp/yup-phone) -->
+<!--
+[![codecov](https://codecov.io/gh/abhisekp/yup-phone/branch/master/graph/badge.svg)](https://codecov.io/gh/abhisekp/yup-phone)
+[![Coverage Status](https://coveralls.io/repos/github/abhisekp/yup-phone/badge.svg?branch=master)](https://coveralls.io/github/abhisekp/yup-phone?branch=master)
+-->
+
 > Adds a phone number validation check to yup validator using [**google-libphonenumber**](https://www.npmjs.com/package/google-libphonenumber) which gives accurate validation checks.  
-_Read more about the core library here_ [*libphonenumber*](https://github.com/googlei18n/libphonenumber/blob/master/README.md#readme).
+_Read more about the **core library** here_ [*libphonenumber*](https://github.com/googlei18n/libphonenumber/blob/master/README.md#readme).  
+_Read more about **yup** validator here_ [*yup*](https://www.npmjs.com/package/yup)
 
 ## Install
 
 ```sh
 # npm install --save yup-phone
-$ yarn add yup-phone
+$ npm add yup-phone
 ```
+
+## Test
+
+Check validation in [Codesandbox](https://codesandbox.io/s/yup-phone-validation-u4p8n?file=/src/App.js)
 
 ## Examples
 
 ```js
 // See https://repl.it/repls/WiryCleverPatches
-import * as Yup from "yup";
-// const Yup = require("yup");
+import * as yup from 'yup';
+// const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate any phone number (defaults to India for country)
-const phoneSchema = Yup.string()
+const phoneSchema = yup.string()
   .phone()
   .required();
 
@@ -43,13 +55,13 @@ const phoneSchema = Yup.string()
 
 ```js
 // See https://repl.it/repls/SwiftImpossibleCertification
-import * as Yup from "yup";
-// const Yup = require("yup");
+import * as yup from 'yup';
+// const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate phone number loosely in the given region
-const phoneSchema = Yup.string()
+const phoneSchema = yup.string()
   .phone("IN")
   .required();
 
@@ -66,13 +78,13 @@ const phoneSchema = Yup.string()
 
 ```js
 // See https://repl.it/repls/PartialAlicebluePrediction
-import * as Yup from "yup";
-// const Yup = require("yup");
+import * as yup from 'yup';
+// const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate phone number strictly in the given region
-const phoneSchema = Yup.string()
+const phoneSchema = yup.string()
   .phone("IN", true)
   .required();
 
@@ -87,13 +99,13 @@ console.log(phoneSchema.isValidSync("+919876543210")); // → true
 
 ```js
 // See https://repl.it/repls/UniqueForsakenDownloads
-import * as Yup from "yup";
-// const Yup = require("yup");
+import * as yup from 'yup';
+// const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate phone number strictly in the given region with custom error message
-const phoneSchema = Yup.string()
+const phoneSchema = yup.string()
   .phone('IN', true, '${path} is invalid')
   .required();
 
@@ -110,60 +122,58 @@ try {
 
 ----
 
-For more examples, check [yup-phone.test.ts](https://github.com/abhisekp/yup-phone/blob/master/src/yup-phone.test.ts) file.
+For more examples, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
 
 ### Module Sizes
 
 ```
 Destination: dist/yup-phone.umd.js
-Bundle Size:  530.16 KB
-Minified Size:  522.99 KB
-Gzipped Size:  103.42 KB
+Bundle Size:  544.08 KB
+Minified Size:  537.41 KB
+Gzipped Size:  107.04 KB 
 ```
 
 ```
 Destination: dist/yup-phone.umd.min.js
-Bundle Size:  503.62 KB
-Minified Size:  501.29 KB
-Gzipped Size:  102.55 KB
+Bundle Size:  508.65 KB
+Minified Size:  506.46 KB
+Gzipped Size:  105.73 KB 
 ```
 
 ```
 Destination: dist/yup-phone.esm.js
 Bundle Size:  648 B
-Minified Size:  648 B
-Gzipped Size:  366 B
+Minified Size:  646 B
+Gzipped Size:  370 B 
 ```
 
 ```
 Destination: dist/yup-phone.cjs.js
-Bundle Size:  945 B
-Minified Size:  941 B
-Gzipped Size:  490 B
+Bundle Size:  1.35 KB
+Minified Size:  1.34 KB
+Gzipped Size:  662 B 
 ```
 
 ### Contributing
 - Uses Rollup for bundling.
-- Uses yarn for package management.
+- Uses npm for package management.
 - Files are minified using closure compiler.
 - Uses jest for testing.
 - Generates CJS, UMD, and ESM builds.
-- Use `yarn version --major|--minor|--patch` to version.
+- Use `npm version [major|minor|patch]` to version.
 - Use tslint and prettier for code formatting.
 - Uses semantic release for version.
-- Use `yarn commit` to create a standard commit interactively.
+- Use `npx cz` to create a standard commit interactively.
 
 ```sh
-$ yarn build # Build for production
-$ yarn test # Run tests
-$ yarn publish # Publish npm package (prompts for version)
+$ npm run build # Build for production
+$ npm test # Run tests
+$ npm publish # Publish npm package (prompts for version)
 ```
 
 ## License
 
-[MIT](https://github.com/abhisekp/yup-phone/blob/master/LICENSE).
+[MIT](LICENSE).
 
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone?ref=badge_large)
-
-

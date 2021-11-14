@@ -24,6 +24,10 @@ _Read more about **yup** validator here_ [*yup*](https://www.npmjs.com/package/y
 $ npm add yup-phone
 ```
 
+## Test
+
+Check validation in [Codesandbox](https://codesandbox.io/s/yup-phone-validation-u4p8n?file=/src/App.js)
+
 ## Examples
 
 ```js
