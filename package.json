@@ -261,7 +261,8 @@
         }
       ],
       "scopes": [
-        "phone"
+        "phone",
+        "README"
       ]
     }
   }

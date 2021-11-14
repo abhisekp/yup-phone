@@ -21,7 +21,7 @@ _Read more about **yup** validator here_ [*yup*](https://www.npmjs.com/package/y
 
 ```sh
 # npm install --save yup-phone
-$ yarn add yup-phone
+$ npm add yup-phone
 ```
 
 ## Examples
@@ -152,19 +152,19 @@ Gzipped Size:  662 B
 
 ### Contributing
 - Uses Rollup for bundling.
-- Uses yarn for package management.
+- Uses npm for package management.
 - Files are minified using closure compiler.
 - Uses jest for testing.
 - Generates CJS, UMD, and ESM builds.
-- Use `yarn version --major|--minor|--patch` to version.
+- Use `npm version --major|--minor|--patch` to version.
 - Use tslint and prettier for code formatting.
 - Uses semantic release for version.
-- Use `yarn commit` to create a standard commit interactively.
+- Use `npx cz` to create a standard commit interactively.
 
 ```sh
-$ yarn build # Build for production
-$ yarn test # Run tests
-$ yarn publish # Publish npm package (prompts for version)
+$ npm run build # Build for production
+$ npm test # Run tests
+$ npm run publish # Publish npm package (prompts for version)
 ```
 
 ## License
