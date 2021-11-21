@@ -73,7 +73,7 @@
     "@semantic-release/release-notes-generator": "^10.0.2",
     "@types/babel__core": "^7.1.16",
     "@types/core-js": "^2.5.5",
-    "@types/eslint": "^7.28.2",
+    "@types/eslint": "^8.2.0",
     "@types/jest": "^27.0.2",
     "@types/prettier": "^2.4.2",
     "@types/rollup": "^0.54.0",
