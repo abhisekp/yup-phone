@@ -80,7 +80,7 @@
     "@types/rollup-plugin-commonjs": "^9.3.1",
     "@types/rollup-plugin-node-resolve": "^4.1.0",
     "@types/typescript": "^2.0.0",
-    "@wessberg/rollup-plugin-ts": "^1.1.55",
+    "@wessberg/rollup-plugin-ts": "^2.0.4",
     "babel-jest": "^27.3.1",
     "commitizen": "^4.2.4",
     "commitlint-config-gitmoji": "^2.2.5",
