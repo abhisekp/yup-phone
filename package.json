@@ -94,7 +94,7 @@
     "rollup-plugin-filesize": "^9.1.1",
     "rollup-plugin-progress": "^1.1.2",
     "rollup-plugin-ts": "^1.4.7",
-    "semantic-release": "^18.0.0",
+    "semantic-release": "^19.0.5",
     "tslint": "^6.1.2",
     "tslint-config-airbnb-base": "^0.3.0",
     "types-installer": "^1.6.3",
