@@ -122,7 +122,7 @@ try {
 
 ----
 
-For more examples, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
+For more examples, check [yup-phone.test.ts](test/yup-phone.test.ts) file.
 
 ### Module Sizes
 

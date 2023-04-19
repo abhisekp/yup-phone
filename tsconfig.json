@@ -1,6 +1,18 @@
 {
   "$schema": "http://json.schemastore.org/tsconfig",
   "compilerOptions": {
+    "rootDir": "./src",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "moduleResolution": "Node",
+    "resolveJsonModule": true,
+    "noEmit": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "forceConsistentCasingInFileNames": true,
+    "types": ["vite/client", "node"],
     "declaration": true,
     "sourceMap": true,
     "incremental": true,
@@ -11,5 +23,6 @@
     "pretty": true,
     "target": "esnext"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["**/*.test.ts", "node_modules", "test/**", ".history/**"]
 }
