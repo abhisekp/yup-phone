@@ -14,8 +14,8 @@
 -->
 
 > Adds a phone number validation check to yup validator using [**google-libphonenumber**](https://www.npmjs.com/package/google-libphonenumber) which gives accurate validation checks.  
-_Read more about the **core library** here_ [*libphonenumber*](https://github.com/googlei18n/libphonenumber/blob/master/README.md#readme).  
-_Read more about **yup** validator here_ [*yup*](https://www.npmjs.com/package/yup)
+> _Read more about the **core library** here_ [_libphonenumber_](https://github.com/googlei18n/libphonenumber/blob/master/README.md#readme).  
+> _Read more about **yup** validator here_ [_yup_](https://www.npmjs.com/package/yup)
 
 ## Install
 
@@ -32,15 +32,13 @@ Check validation in [Codesandbox](https://codesandbox.io/s/yup-phone-validation-
 
 ```js
 // See https://repl.it/repls/WiryCleverPatches
-import * as yup from 'yup';
+import * as yup from "yup";
 // const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate any phone number (defaults to India for country)
-const phoneSchema = yup.string()
-  .phone()
-  .required();
+const phoneSchema = yup.string().phone().required();
 
 (async () => {
   console.log(await phoneSchema.isValid("9876543210")); // → true
@@ -51,22 +49,20 @@ const phoneSchema = yup.string()
   <a href="https://repl.it/repls/WiryCleverPatches"><img src="https://repl.it/badge/github/abhisekp/yup-phone" /></a>
 </div>
 
-----
+---
 
 ```js
 // See https://repl.it/repls/SwiftImpossibleCertification
-import * as yup from 'yup';
+import * as yup from "yup";
 // const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate phone number loosely in the given region
-const phoneSchema = yup.string()
-  .phone("IN")
-  .required();
+const phoneSchema = yup.string().phone("IN").required();
 
 (async () => {
-  console.log(await phoneSchema.isValid('+919876543210')); // → true
+  console.log(await phoneSchema.isValid("+919876543210")); // → true
 })();
 ```
 
@@ -74,19 +70,17 @@ const phoneSchema = yup.string()
   <a href="https://repl.it/repls/SwiftImpossibleCertification"><img src="https://repl.it/badge/github/abhisekp/yup-phone" /></a>
 </div>
 
-----
+---
 
 ```js
 // See https://repl.it/repls/PartialAlicebluePrediction
-import * as yup from 'yup';
+import * as yup from "yup";
 // const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate phone number strictly in the given region
-const phoneSchema = yup.string()
-  .phone("IN", true)
-  .required();
+const phoneSchema = yup.string().phone("IN", true).required();
 
 console.log(phoneSchema.isValidSync("+919876543210")); // → true
 ```
@@ -95,22 +89,23 @@ console.log(phoneSchema.isValidSync("+919876543210")); // → true
   <a href="https://repl.it/repls/PartialAlicebluePrediction"><img src="https://repl.it/badge/github/abhisekp/yup-phone" /></a>
 </div>
 
-----
+---
 
 ```js
 // See https://repl.it/repls/UniqueForsakenDownloads
-import * as yup from 'yup';
+import * as yup from "yup";
 // const yup = require("yup");
 import "yup-phone";
 // require("yup-phone");
 
 // validate phone number strictly in the given region with custom error message
-const phoneSchema = yup.string()
-  .phone('IN', true, '${path} is invalid')
+const phoneSchema = yup
+  .string()
+  .phone("IN", true, "${path} is invalid")
   .required();
 
 try {
-  phoneSchema.validateSync('+1 345 9490088');
+  phoneSchema.validateSync("+1 345 9490088");
 } catch (error) {
   console.log(error.message); // → this is invalid
 }
@@ -120,7 +115,7 @@ try {
   <a href="https://repl.it/repls/UniqueForsakenDownloads"><img src="https://repl.it/badge/github/abhisekp/yup-phone" /></a>
 </div>
 
-----
+---
 
 For more examples, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
 
@@ -130,31 +125,32 @@ For more examples, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
 Destination: dist/yup-phone.umd.js
 Bundle Size:  544.08 KB
 Minified Size:  537.41 KB
-Gzipped Size:  107.04 KB 
+Gzipped Size:  107.04 KB
 ```
 
 ```
 Destination: dist/yup-phone.umd.min.js
 Bundle Size:  508.65 KB
 Minified Size:  506.46 KB
-Gzipped Size:  105.73 KB 
+Gzipped Size:  105.73 KB
 ```
 
 ```
 Destination: dist/yup-phone.esm.js
 Bundle Size:  648 B
 Minified Size:  646 B
-Gzipped Size:  370 B 
+Gzipped Size:  370 B
 ```
 
 ```
 Destination: dist/yup-phone.cjs.js
 Bundle Size:  1.35 KB
 Minified Size:  1.34 KB
-Gzipped Size:  662 B 
+Gzipped Size:  662 B
 ```
 
 ### Contributing
+
 - Uses Rollup for bundling.
 - Uses npm for package management.
 - Files are minified using closure compiler.
@@ -174,6 +170,5 @@ $ npm publish # Publish npm package (prompts for version)
 ## License
 
 [MIT](LICENSE).
-
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone?ref=badge_large)
