@@ -1,4 +1,4 @@
-import * as Yup from "yup";
+import { addMethod, string } from "yup";
 import {
   isValidNumberForRegion,
   CountryCode,
@@ -24,23 +24,22 @@ declare module "yup" {
 
 const YUP_PHONE_METHOD = "phone";
 
-Yup.addMethod(
-  Yup.string,
+addMethod(
+  string,
   YUP_PHONE_METHOD,
   function yupPhone(
     countryCode?: CountryCode,
-    strict: boolean = false,
-    errorMessage: string = ""
+    strict = false,
+    errorMessage = ""
   ) {
     const errMsg =
       typeof errorMessage === "string" && errorMessage
         ? errorMessage
         : countryCode
-        ? `\${path} must be a valid phone number for region ${countryCode}`
+        ? "${path} must be a valid phone number for region " + countryCode
         : "${path} must be a valid phone number.";
 
-    // @ts-ignore
-    return this.test(YUP_PHONE_METHOD, errMsg, (value: string) => {
+    return this.test(YUP_PHONE_METHOD, errMsg, (value = "") => {
       try {
         const phoneNumber = parsePhoneNumberWithError(value, countryCode);
 
