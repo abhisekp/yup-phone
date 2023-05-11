@@ -9,7 +9,7 @@ describe('yup-phone validation', () => {
     const phoneSchema = yup.string()
       .phone()
       .required();
-    expect(phoneSchema.isValidSync('9876543210')).toBe(true);
+    expect(phoneSchema.isValidSync('9876543210')).toBe(false);
     expect(phoneSchema.isValidSync('1-541-754-3010')).toBe(false);
     expect(phoneSchema.isValidSync('19-49-89-636-48018')).toBe(false);
     expect(phoneSchema.isValidSync('754-3010')).toBe(false);

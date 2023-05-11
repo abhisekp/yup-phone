@@ -13,8 +13,7 @@
 [![Coverage Status](https://coveralls.io/repos/github/abhisekp/yup-phone/badge.svg?branch=master)](https://coveralls.io/github/abhisekp/yup-phone?branch=master)
 -->
 
-> Adds a phone number validation check to yup validator using [**google-libphonenumber**](https://www.npmjs.com/package/google-libphonenumber) which gives accurate validation checks.  
-_Read more about the **core library** here_ [*libphonenumber*](https://github.com/googlei18n/libphonenumber/blob/master/README.md#readme).  
+> Adds a phone number validation check to yup validator using [**libphonenumber-js**](https://www.npmjs.com/package/libphonenumber-js) which gives accurate validation checks.  
 _Read more about **yup** validator here_ [*yup*](https://www.npmjs.com/package/yup)
 
 ## Install
@@ -128,30 +127,30 @@ For more examples, check [yup-phone.test.ts](src/yup-phone.test.ts) file.
 
 ```
 Destination: dist/yup-phone.umd.js
-Bundle Size:  544.08 KB
-Minified Size:  537.41 KB
-Gzipped Size:  107.04 KB 
+Bundle Size:  220.83 KB
+Minified Size:  114.36 KB
+Gzipped Size:  27.88 KB
 ```
 
 ```
 Destination: dist/yup-phone.umd.min.js
-Bundle Size:  508.65 KB
-Minified Size:  506.46 KB
-Gzipped Size:  105.73 KB 
+Bundle Size:  113.55 KB
+Minified Size:  112.38 KB
+Gzipped Size:  28 KB
 ```
 
 ```
 Destination: dist/yup-phone.esm.js
-Bundle Size:  648 B
-Minified Size:  646 B
-Gzipped Size:  370 B 
+Bundle Size:  481 B
+Minified Size:  483 B
+Gzipped Size:  299 B
 ```
 
 ```
 Destination: dist/yup-phone.cjs.js
-Bundle Size:  1.35 KB
-Minified Size:  1.34 KB
-Gzipped Size:  662 B 
+Bundle Size:  912 B
+Minified Size:  914 B
+Gzipped Size:  496 B
 ```
 
 ### Contributing
