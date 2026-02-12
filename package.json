@@ -91,7 +91,7 @@
     "prettier": "^2.4.1",
     "rollup": "^2.60.0",
     "rollup-plugin-analyzer": "^4.0.0",
-    "rollup-plugin-filesize": "^9.1.1",
+    "rollup-plugin-filesize": "^10.0.0",
     "rollup-plugin-progress": "^1.1.2",
     "rollup-plugin-ts": "^1.4.7",
     "semantic-release": "^18.0.0",
