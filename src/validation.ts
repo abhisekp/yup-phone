@@ -16,6 +16,7 @@ const KEYPAD: Record<string, string> = Object.fromEntries(
   ),
 );
 
+/** Convert Google-style alphabetic phone numbers while preserving extensions. */
 function normalizeVanity(value: string): string {
   if (!/[a-z]/i.test(value)) return value;
   // Google converts alphabetic phone numbers with at least three letters.
@@ -36,9 +37,16 @@ function normalizeVanity(value: string): string {
   );
 }
 
+/**
+ * Validate a parsed number against complete metadata and the legacy region rules.
+ * @param value The value after Yup's normal string casting.
+ * @param options Effective default region and strict region validation flag.
+ * @returns Whether the number satisfies the original phone validator's contract.
+ */
 export function validatePhone(value: unknown, options: PhoneOptions): boolean {
   if (typeof value !== 'string' || value.length > 250) return false;
-  if (!/[0-9\uFF10-\uFF19\u0660-\u0669\u06F0-\u06F9]/.test(value)) return false;
+  if (!/[0-9\uFF10-\uFF19\u0660-\u0669\u06F0-\u06F9]/u.test(value))
+    return false;
   try {
     const country = isSupportedCountry(options.countryCode)
       ? options.countryCode

@@ -5,11 +5,9 @@ import { execFileSync } from 'node:child_process';
 
 const pkg = JSON.parse(await readFile('package.json', 'utf8'));
 const tarball = `yup-phone-${pkg.version}.tgz`;
-const integrity =
-  'sha512-' +
-  createHash('sha512')
-    .update(await readFile(tarball))
-    .digest('base64');
+const integrity = `sha512-${createHash('sha512')
+  .update(await readFile(tarball))
+  .digest('base64')}`;
 const response = await fetch(
   `https://registry.npmjs.org/yup-phone/${encodeURIComponent(pkg.version)}`,
 );

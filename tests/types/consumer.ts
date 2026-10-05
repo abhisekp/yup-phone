@@ -5,9 +5,9 @@ const required = string().required().phone('IN');
 const optional = string().optional().phone();
 const nullable = string().nullable().phone();
 const defaults = string().default('9876543210').phone();
-const country: string = 'IN';
+const country = String('IN');
 const chained = string()
-  .phone(country, false, '${path} invalid')
+  .phone(country, false, 'invalid phone')
   .trim()
   .required();
 const schema = object({ phone: chained });
@@ -22,6 +22,11 @@ const absent: InferType<typeof optional> = undefined;
 const nullValue: InferType<typeof nullable> = null;
 const defaultValue: InferType<typeof defaults> = '9876543210';
 void [
+  required,
+  optional,
+  nullable,
+  defaults,
+  schema,
   valid,
   invalid,
   invalidNumber,

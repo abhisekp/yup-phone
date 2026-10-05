@@ -1,6 +1,10 @@
-import * as yup from 'yup';
-require('../dist/yup-phone.cjs.js');
-const google = require('google-libphonenumber');
+import { string } from 'yup';
+import '../dist/yup-phone.cjs.js';
+import { createRequire } from 'node:module';
+import path from 'node:path';
+const google = createRequire(path.resolve('package.json'))(
+  'google-libphonenumber',
+);
 const util = google.PhoneNumberUtil.getInstance();
 
 function legacy(value: string, region: string, strict: boolean): boolean {
@@ -34,10 +38,7 @@ describe('Google reference parity', () => {
           const value = util.format(example, format);
           for (const strict of [false, true]) {
             const expected = legacy(value, region, strict);
-            const actual = yup
-              .string()
-              .phone(region, strict)
-              .isValidSync(value);
+            const actual = string().phone(region, strict).isValidSync(value);
             checked++;
             if (actual !== expected)
               mismatches.push({ value, region, strict, expected, actual });

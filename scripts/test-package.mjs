@@ -7,13 +7,14 @@ import { root, generatedPath } from './paths.mjs';
 const npmCli = process.env.npm_execpath;
 process.chdir(root);
 assert(npmCli, 'Run through npm run test:package');
+/** Run the same npm CLI that launched this consumer verification. */
 const npm = (args, options = {}) =>
   execFileSync(process.execPath, [npmCli, ...args], {
     encoding: 'utf8',
     ...options,
   });
 const pkg = JSON.parse(await readFile('package.json', 'utf8'));
-assert.equal(pkg.browser, undefined);
+assert.equal('browser' in pkg, false);
 assert.equal(pkg.sideEffects, true);
 const directory = generatedPath('.build/package-test');
 await rm(directory, { recursive: true, force: true });
@@ -102,7 +103,7 @@ execFileSync(process.execPath, ['umd.cjs'], {
 });
 await writeFile(
   path.join(directory, 'consumer.ts'),
-  `import { string, type InferType } from 'yup'; import 'yup-phone'; const schema = string().required().phone(); const value: InferType<typeof schema> = '9876543210'; // @ts-expect-error required inference must survive phone()\nconst invalid: InferType<typeof schema> = undefined; void [value, invalid];`,
+  "import { string, type InferType } from 'yup'; import 'yup-phone'; const schema = string().required().phone(); const value: InferType<typeof schema> = '9876543210'; // @ts-expect-error required inference must survive phone()\nconst invalid: InferType<typeof schema> = undefined; void [value, invalid];",
 );
 await writeFile(
   path.join(directory, 'consumer.mts'),

@@ -43,9 +43,11 @@ const iterations = Number(process.env.BENCH_ITERATIONS ?? 1000);
 const samples = Number(process.env.BENCH_SAMPLES ?? 7);
 assert(iterations > 0 && Number.isInteger(iterations));
 assert(samples >= 3 && Number.isInteger(samples));
+/** Return the middle observation without mutating recorded samples. */
 const median = (values) =>
   [...values].sort((a, b) => a - b)[Math.floor(values.length / 2)];
 let checksum = 0;
+/** Measure one batch of synchronous validation calls. */
 function measure(schema, value) {
   const start = performance.now();
   for (let index = 0; index < iterations; index++)
@@ -110,6 +112,7 @@ assert(
     sizes['v1.3.2 UMD minified'].gzipBytes * 0.75,
   'Bundled UMD gzip size must remain at least 25% below the v1 baseline',
 );
+/** Measure adapter imports in fresh processes, excluding process startup. */
 function coldLoad(entry) {
   const script = `const {performance}=require('node:perf_hooks'); const start=performance.now(); require(${JSON.stringify(entry)}); console.log(performance.now()-start);`;
   return Array.from({ length: 5 }, () =>
@@ -145,7 +148,7 @@ const result = {
 await mkdir('benchmarks/results', { recursive: true });
 await writeFile(
   'benchmarks/results/latest.json',
-  JSON.stringify(result, null, 2) + '\n',
+  `${JSON.stringify(result, null, 2)}\n`,
 );
 const totalOld = rows.reduce((sum, row) => sum + row.oldMedianMs, 0);
 const totalNew = rows.reduce((sum, row) => sum + row.newMedianMs, 0);

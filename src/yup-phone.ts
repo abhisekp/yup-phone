@@ -26,6 +26,7 @@ const addStringMethod = addMethod as (
 addStringMethod(
   string,
   'phone',
+  /** Attach phone validation without changing the schema's inferred type. */
   function yupPhone(countryCode?: string, strict = false, errorMessage = '') {
     // Preserve the original shape check and fallback without mutating arguments.
     const hasCountry =
@@ -38,8 +39,8 @@ addStringMethod(
       typeof errorMessage === 'string' && errorMessage
         ? errorMessage
         : hasCountry
-          ? '${path} must be a valid phone number for region ' + countryCode
-          : '${path} must be a valid phone number.';
+          ? `\${path} must be a valid phone number for region ${countryCode}`
+          : `\${path} must be a valid phone number.`;
 
     return this.test('phone', message, (value: unknown) =>
       validatePhone(value, options),
