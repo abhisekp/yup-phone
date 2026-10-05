@@ -1,0 +1,61 @@
+name: CI
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    - cron: '30 4 * * 1'
+permissions:
+  contents: read
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  compatibility:
+    name: Node ${{ matrix.node }} / Yup ${{ matrix.yup }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [22, 24]
+        yup: ['0.32.11', '1.0.0', 'latest']
+        os: [ubuntu-latest]
+        include:
+          - { node: 24, yup: '0.32.11', os: windows-latest }
+          - { node: 24, yup: 'latest', os: windows-latest }
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm install --no-save --package-lock=false --ignore-scripts yup@${{ matrix.yup }}
+      - run: npm run check
+      - run: npm run test:baseline
+  quality:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npm run format:check
+      - name: Check workflow syntax and expressions
+        uses: docker://rhysd/actionlint:1.7.12
+      - run: npm audit --audit-level=low
+      - run: npm audit --omit=dev --audit-level=low
+      - run: npm run build
+      - run: npm run benchmark
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          name: benchmark-and-package
+          path: |
+            benchmarks/results
+            dist
+          retention-days: 30

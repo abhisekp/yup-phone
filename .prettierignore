@@ -1,0 +1,9 @@
+node_modules
+dist
+.build
+coverage
+package-lock.json
+src/yup-phone.test.ts
+docs/pr-review.md
+benchmarks/results
+benchmarks/fixtures

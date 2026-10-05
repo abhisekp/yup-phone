@@ -1,0 +1,79 @@
+name: Release
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing release tag to retry publishing (leave empty for normal releases)
+        required: false
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: release-master
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: inputs.tag == ''
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts
+      - run: npm run check
+      - run: npm audit --audit-level=low
+      - run: npm run benchmark
+  release:
+    if: inputs.tag == ''
+    needs: verify
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    outputs:
+      released: ${{ steps.release.outputs.release_created }}
+      tag: ${{ steps.release.outputs.tag_name }}
+    steps:
+      - uses: googleapis/release-please-action@8b8fd2cc23b2e18957157a9d923d75aa0c6f6ad5 # v4
+        id: release
+        with:
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}
+  publish:
+    needs: release
+    if: always() && (needs.release.outputs.released == 'true' || inputs.tag != '')
+    runs-on: ubuntu-latest
+    environment: npm
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          ref: ${{ inputs.tag || needs.release.outputs.tag }}
+          fetch-depth: 0
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7
+        with:
+          node-version: 24
+          package-manager-cache: false
+      - run: npm ci --ignore-scripts
+      - name: Verify release tag and master ancestry
+        env:
+          RELEASE_TAG: ${{ inputs.tag || needs.release.outputs.tag }}
+        run: node scripts/verify-release.mjs
+      - run: npm run check
+      - run: npm audit --audit-level=low
+      - run: npm run benchmark
+      - run: npm pack --ignore-scripts
+      - name: Publish with npm trusted publishing
+        run: npm run release:publish
+      - name: Attach package and benchmark evidence
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ inputs.tag || needs.release.outputs.tag }}
+        run: gh release upload "$RELEASE_TAG" yup-phone-*.tgz benchmarks/results/latest.json benchmarks/results/latest.md --clobber
