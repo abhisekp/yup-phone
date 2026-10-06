@@ -4,6 +4,5 @@ dist
 coverage
 package-lock.json
 src/yup-phone.test.ts
-docs/pr-review.md
 benchmarks/results
 benchmarks/fixtures

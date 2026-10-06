@@ -1,4 +1,4 @@
-import { string, object } from 'yup';
+import { string, object, lazy } from 'yup';
 import '../dist/yup-phone.cjs.js';
 
 describe('legacy contracts', () => {
@@ -67,5 +67,30 @@ describe('legacy contracts', () => {
         phone: '+1 345 9490088',
       }),
     ).toThrow('phone must be a valid phone number for region IN');
+  });
+  it('handles the current US area code and default-region issue examples', () => {
+    expect(string().phone('US', true).isValidSync('9435551234')).toBe(true);
+    expect(string().phone('US').isValidSync('2819129531')).toBe(true);
+    expect(string().phone().isValidSync('2819129531')).toBe(false);
+    expect(string().phone('DE').isValidSync('+919876543210')).toBe(true);
+    expect(string().phone('DE', true).isValidSync('+919876543210')).toBe(false);
+  });
+  it('accepts a custom message with the default region', () => {
+    expect(() =>
+      string().phone(undefined, false, 'Invalid phone').validateSync('bad'),
+    ).toThrow('Invalid phone');
+  });
+  it('supports opting into optional blanks without changing the phone contract', () => {
+    const optionalPhone = lazy((value) =>
+      value == null || value === ''
+        ? string().nullable()
+        : string().phone('US'),
+    );
+    for (const value of ['', null, undefined, '2819129531'])
+      expect(optionalPhone.isValidSync(value)).toBe(true);
+    expect(optionalPhone.isValidSync('bad')).toBe(false);
+    expect(() =>
+      string().required('Phone is required').phone('US').validateSync(''),
+    ).toThrow('Phone is required');
   });
 });

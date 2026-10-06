@@ -2,6 +2,8 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import path from 'node:path';
+import { runInNewContext } from 'node:vm';
+import { build } from 'esbuild';
 import { root, generatedPath } from './paths.mjs';
 
 const npmCli = process.env.npm_execpath;
@@ -101,6 +103,39 @@ execFileSync(process.execPath, ['umd.cjs'], {
   cwd: directory,
   stdio: 'inherit',
 });
+// Reproduce the web-bundler metadata issue against the real installed tarball.
+await writeFile(
+  path.join(directory, 'browser.mjs'),
+  `
+import { string } from 'yup';
+import 'yup-phone';
+globalThis.phoneResults = [
+  string().phone('US', true).isValidSync('9435551234'),
+  string().phone('SG').isValidSync('+6599555555'),
+  string().phone('IN', true).isValidSync('+1 345 9490088'),
+];
+`,
+);
+const browser = await build({
+  absWorkingDir: directory,
+  entryPoints: ['browser.mjs'],
+  bundle: true,
+  platform: 'browser',
+  format: 'iife',
+  target: 'es2020',
+  write: false,
+  metafile: true,
+});
+const context = {};
+runInNewContext(browser.outputFiles[0].text, context);
+assert.deepEqual(Array.from(context.phoneResults), [true, false, false]);
+const inputs = Object.keys(browser.metafile.inputs);
+assert(
+  inputs.some((file) => file.includes('libphonenumber-js/metadata.max.json')),
+);
+assert(
+  !inputs.some((file) => /google-libphonenumber|yup-phone\.umd/u.test(file)),
+);
 await writeFile(
   path.join(directory, 'consumer.ts'),
   "import { string, type InferType } from 'yup'; import 'yup-phone'; const schema = string().required().phone(); const value: InferType<typeof schema> = '9876543210'; // @ts-expect-error required inference must survive phone()\nconst invalid: InferType<typeof schema> = undefined; void [value, invalid];",
@@ -134,5 +169,5 @@ execFileSync(
   { stdio: 'inherit' },
 );
 console.log(
-  `Packed CJS, ESM, UMD global/AMD and TypeScript consumers passed with Yup ${yupVersion}.`,
+  `Packed CJS, ESM, browser bundle, UMD global/AMD and TypeScript consumers passed with Yup ${yupVersion}.`,
 );

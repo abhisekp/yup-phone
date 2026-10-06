@@ -46,11 +46,18 @@ jobs:
           cache: npm
       - run: npm ci --ignore-scripts
       - run: npm run format:check
+      - name: Check the PR title's commit format
+        if: github.event_name == 'pull_request'
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: node scripts/lint-pr-title.mjs
       - name: Check workflow syntax and expressions
         uses: docker://rhysd/actionlint:1.7.12
       - run: npm audit --audit-level=low
       - run: npm audit --omit=dev --audit-level=low
       - run: npm run build
+      - name: Verify checked-in distribution files
+        run: git diff --exit-code -- dist
       - run: npm run benchmark
       - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
         with:

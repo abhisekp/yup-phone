@@ -40,7 +40,7 @@ addStringMethod(
         ? errorMessage
         : hasCountry
           ? `\${path} must be a valid phone number for region ${countryCode}`
-          : `\${path} must be a valid phone number.`;
+          : '${path} must be a valid phone number.'; // skipcq: JS-0038 -- Yup expands this literal at validation time.
 
     return this.test('phone', message, (value: unknown) =>
       validatePhone(value, options),

@@ -196,7 +196,6 @@ out
 
 # Nuxt.js build / generate output
 .nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -260,3 +259,5 @@ dist
 
 # End of https://www.toptal.com/developers/gitignore/api/git,node,visualstudiocode,intellij+all
 .build/
+
+# Distribution bundles are deliberately tracked for direct repository consumers.

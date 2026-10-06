@@ -1,7 +1,17 @@
-# yup-phone
+# yup-phone [![MIT License](https://img.shields.io/badge/-MIT-56A902.svg?style=flat-square&maxAge=2592000 'MIT License')](https://github.com/abhisekp/yup-phone/blob/master/LICENSE) [![npm - yup-phone](https://img.shields.io/npm/v/yup-phone)](https://www.npmjs.com/package/yup-phone 'yup-phone npm') [![Tweet yup-phone validator](https://img.shields.io/badge/share-on%20X-000000?logo=x&logoColor=white 'Tweet yup-phone validator')](https://twitter.com/intent/tweet?text=Are+you+still+validating+phone+numbers+using+regex%3F%0D%0AUse+%40npmjs+module+for+adding+phone+number+validation+%23yup+%23yupphone+%0D%0A%0D%0A%60npm+install+-S+yup+yup-phone%60+%E2%98%8E%EF%B8%8F%0D%0A%0D%0A&hashtags=javascript,Nodejs,validation,regex,npm,phone&via=abhisek&related=abhisek%3ADeveloper,npmjs&url=https://www.npmjs.com/package/yup-phone)
 
-[![CI](https://github.com/abhisekp/yup-phone/actions/workflows/ci.yml/badge.svg)](https://github.com/abhisekp/yup-phone/actions/workflows/ci.yml)
-[![npm](https://img.shields.io/npm/v/yup-phone)](https://www.npmjs.com/package/yup-phone)
+[![Build Status](https://github.com/abhisekp/yup-phone/actions/workflows/ci.yml/badge.svg)](https://github.com/abhisekp/yup-phone/actions/workflows/ci.yml)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](https://commitizen.github.io/cz-cli/)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone?ref=badge_shield)
+[![Known Vulnerabilities](https://snyk.io/test/github/abhisekp/yup-phone/badge.svg?targetFile=package.json)](https://snyk.io/test/github/abhisekp/yup-phone?targetFile=package.json)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2bbf03ae96ad4a75ba09ea1418021fe5)](https://app.codacy.com/manual/abhisekp/yup-phone?utm_source=github.com&utm_medium=referral&utm_content=abhisekp/yup-phone&utm_campaign=Badge_Grade_Settings)
+
+<!-- [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release) -->
+<!-- [![codecov](https://codecov.io/gh/abhisekp/yup-phone/branch/master/graph/badge.svg)](https://codecov.io/gh/abhisekp/yup-phone) -->
+<!--
+[![codecov](https://codecov.io/gh/abhisekp/yup-phone/branch/master/graph/badge.svg)](https://codecov.io/gh/abhisekp/yup-phone)
+[![Coverage Status](https://coveralls.io/repos/github/abhisekp/yup-phone/badge.svg?branch=master)](https://coveralls.io/github/abhisekp/yup-phone?branch=master)
+-->
 
 Phone validation for **Yup 0.32.11 and 1.x**, powered by
 [libphonenumber-js](https://github.com/catamphetamine/libphonenumber-js).
@@ -82,6 +92,40 @@ The Google reference comparison catches regressions across regions and number
 types but does not promise identical results for every input or freeze old
 numbering plans forever.
 
+## Common integration questions
+
+The region is a default parsing region in loose mode. Use the second argument
+when the number must belong to that region:
+
+```js
+yup.string().phone('DE').isValidSync('+919876543210'); // true
+yup.string().phone('DE', true).isValidSync('+919876543210'); // false
+yup.string().phone('US').isValidSync('2819129531'); // true
+```
+
+Pass a custom message as the third argument. To keep the default India region,
+use `phone(undefined, false, 'Invalid phone number')`; JavaScript does not support
+named arguments such as `phone(errorMessage = '...')`.
+
+To opt into optional empty fields while retaining the phone validator's legacy
+contract, apply it only when a value is present:
+
+```js
+const optionalPhone = yup.lazy((value) =>
+  value == null || value === ''
+    ? yup.string().nullable()
+    : yup.string().phone('US'),
+);
+
+// Place required first when its message should win for an empty string.
+const requiredPhone = yup.string().required('Phone is required').phone('US');
+```
+
+If `.phone` is missing at runtime, import `'yup-phone'` before constructing
+schemas and use one supported Yup instance. Version 2 declares Yup as a peer,
+ships augmentation declarations, and keeps registration as a side effect.
+Packed-package tests exercise Node, browser bundling, and TypeScript consumers.
+
 ## Module formats
 
 | Consumer                       | Entry                                     |
@@ -138,11 +182,10 @@ changelogs, `v<major>.<minor>.<patch>` tags, GitHub Releases, provenance-backed 
 publication, and downloadable package/benchmark artifacts. The initial `feat!`
 migration advances the existing v1.3.2 line to **v2.0.0**, retaining both supported
 Yup major lines. Generated dist files are built and tested by CI and `prepack`;
-they are not checked into Git.
-
-The [PR review](docs/pr-review.md) records the existing PR findings and how this
-migration incorporates or supersedes them.
+they are also checked into Git for direct repository consumers.
 
 ## License
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone?ref=badge_large)
 
 [MIT](LICENSE).

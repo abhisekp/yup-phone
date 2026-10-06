@@ -63,3 +63,35 @@ verifies the exact tag, package version and master ancestry before testing and
 publishing the packed tarball. Never move an existing release tag to retry.
 If npm publication already succeeded, a retry only continues when the packed
 tarball's integrity matches that existing npm version; differing contents fail.
+
+## Commit formatting and checked-in builds
+
+Use `npm run commit` for the retained Commitizen/cz-emoji menus. All original
+emoji categories and scopes remain in package.json. The small adapter translates
+aliases such as feature to feat and refactoring to refactor, retaining the emoji,
+so Release Please recognizes the change. The breaking category emits a major
+release marker. Conventional headers and historical Gitmoji headers both pass
+commitlint; new automated releases should use conventional headers, including
+those produced by the adapter. `npm install` installs the Husky commit-message
+hook, and `npm run prepare` installs it after a scripts-disabled checkout.
+
+Development requires Node 22.12+ for current commitlint. The library's production
+runtime requirement remains Node 18+. The audited overrides patch development
+dependency paths. The repository-local module-directory walker replaces an
+unpatched glob-parser path in Commitizen; its supported API and rationale are
+documented under vendor/find-node-modules. No audit findings are ignored.
+
+Distribution files are tracked under dist/. CI rebuilds and verifies them. The
+Refresh dist workflow builds with a read-only token, then a separate job commits
+only generated bundles for branches in this repository. That job executes no
+project scripts and dispatches CI/CodeQL on the new commit, because GitHub's
+default token suppresses ordinary push-triggered workflows. Fork contributors
+can run `npm run build` and include dist/ in their own commits. The workflow can
+also be dispatched for a named repository branch.
+
+The retired Babel config targeted Node 9/core-js 2; esbuild now supplies the
+documented ES2020 outputs. TSLint is replaced by TypeScript checking, formatting,
+and code analysis. Release Please replaces .releaserc.json, and GitHub Actions
+and npm OIDC replace the unused Travis encrypted deploy key. These old files
+would imply active tools or credentials that the current workflow does not use.
+Commitlint is independent of those replacements and remains enabled.

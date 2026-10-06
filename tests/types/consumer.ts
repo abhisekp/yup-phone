@@ -21,7 +21,7 @@ const invalidOptional: InferType<typeof optional> = 123;
 const absent: InferType<typeof optional> = undefined;
 const nullValue: InferType<typeof nullable> = null;
 const defaultValue: InferType<typeof defaults> = '9876543210';
-void [
+export const checkedValues = [
   required,
   optional,
   nullable,

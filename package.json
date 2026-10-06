@@ -62,9 +62,13 @@
     "format:check": "prettier --check .",
     "benchmark": "node benchmarks/phone.mjs",
     "release:publish": "node scripts/publish.mjs",
-    "check": "npm run typecheck && npm run build && npm test && npm run test:types && npm run test:package",
+    "check": "npm run typecheck && npm run build && npm test && npm run test:types && npm run test:package && npm run test:commits",
     "prepack": "npm run build",
-    "preversion": "npm run check"
+    "preversion": "npm run check",
+    "commit": "cz",
+    "lint:commit": "commitlint",
+    "test:commits": "node scripts/test-commits.mjs",
+    "prepare": "husky"
   },
   "peerDependencies": {
     "yup": "^0.32.11 || ^1.0.0"
@@ -73,17 +77,194 @@
     "libphonenumber-js": "^1.13.14"
   },
   "devDependencies": {
+    "@commitlint/cli": "^21.2.3",
     "@rollup/plugin-commonjs": "^29.0.3",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "@rollup/plugin-terser": "^1.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.4",
+    "commitizen": "^4.3.2",
+    "cz-emoji": "^1.3.2-canary.2",
     "esbuild": "^0.28.2",
     "google-libphonenumber": "^3.2.47",
+    "husky": "^9.1.7",
     "jest": "^30.5.2",
     "prettier": "^3.9.9",
     "rollup": "^4.64.0",
     "typescript": "^7.0.2",
-    "yup": "^1.7.1"
+    "yup": "^1.7.1",
+    "find-node-modules": "file:vendor/find-node-modules"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./scripts/commitizen-adapter.cjs"
+    },
+    "cz-emoji": {
+      "types": [
+        {
+          "emoji": "🎨",
+          "code": ":art:",
+          "description": "Improving structure / format of the code.",
+          "name": "style"
+        },
+        {
+          "emoji": "🐛",
+          "code": ":bug:",
+          "description": "Fixing a bug.",
+          "name": "fix"
+        },
+        {
+          "emoji": "✨",
+          "code": ":sparkles:",
+          "description": "Introducing new features.",
+          "name": "feature"
+        },
+        {
+          "emoji": "📝",
+          "code": ":memo:",
+          "description": "Writing docs.",
+          "name": "docs"
+        },
+        {
+          "emoji": "✅",
+          "code": ":white_check_mark:",
+          "description": "Adding tests.",
+          "name": "test"
+        },
+        {
+          "emoji": "🚧",
+          "code": ":construction:",
+          "description": "Work in progress.",
+          "name": "wip"
+        },
+        {
+          "emoji": "⬆️",
+          "code": ":arrow_up:",
+          "description": "Upgrading dependencies.",
+          "name": "upgrade"
+        },
+        {
+          "emoji": "👷",
+          "code": ":construction_worker:",
+          "description": "Adding CI build system.",
+          "name": "ci"
+        },
+        {
+          "emoji": "💚",
+          "code": ":green_heart:",
+          "description": "Fixing CI Build.",
+          "name": "fix-ci"
+        },
+        {
+          "emoji": "♻️",
+          "code": ":recycle:",
+          "description": "Refactoring code.",
+          "name": "refactoring"
+        },
+        {
+          "emoji": "➖",
+          "code": ":heavy_minus_sign:",
+          "description": "Removing a dependency.",
+          "name": "dep-rm"
+        },
+        {
+          "emoji": "➕",
+          "code": ":heavy_plus_sign:",
+          "description": "Adding a dependency.",
+          "name": "dep-add"
+        },
+        {
+          "emoji": "🔧",
+          "code": ":wrench:",
+          "description": "Changing configuration files.",
+          "name": "config"
+        },
+        {
+          "emoji": "🌐",
+          "code": ":globe_with_meridians:",
+          "description": "Internationalization and localization.",
+          "name": "i18n"
+        },
+        {
+          "emoji": "✏️",
+          "code": ":pencil2:",
+          "description": "Fixing typos.",
+          "name": "typo"
+        },
+        {
+          "emoji": "💩",
+          "code": ":poop:",
+          "description": "Writing bad code that needs to be improved.",
+          "name": "poo"
+        },
+        {
+          "emoji": "⏪",
+          "code": ":rewind:",
+          "description": "Reverting changes.",
+          "name": "revert"
+        },
+        {
+          "emoji": "🔀",
+          "code": ":twisted_rightwards_arrows:",
+          "description": "Merging branches.",
+          "name": "merge"
+        },
+        {
+          "emoji": "📦",
+          "code": ":package:",
+          "description": "Updating compiled files or packages.",
+          "name": "dep-up"
+        },
+        {
+          "emoji": "💥",
+          "code": ":boom:",
+          "description": "Introducing breaking changes.",
+          "name": "breaking"
+        },
+        {
+          "emoji": "👌",
+          "code": ":ok_hand:",
+          "description": "Updating code due to code review changes.",
+          "name": "review"
+        },
+        {
+          "emoji": "💡",
+          "code": ":bulb:",
+          "description": "Documenting source code.",
+          "name": "docs-code"
+        },
+        {
+          "emoji": "🗃",
+          "code": ":card_file_box:",
+          "description": "Performing database related changes.",
+          "name": "db"
+        },
+        {
+          "emoji": "🏗",
+          "entity": "&#1f3d7;",
+          "code": ":building_construction:",
+          "description": "Making architectural changes.",
+          "name": "building-construction"
+        },
+        {
+          "emoji": "🙈",
+          "entity": "&#8bdfe7;",
+          "code": ":see_no_evil:",
+          "description": "Adding or updating a .gitignore file",
+          "name": "see-no-evil"
+        }
+      ],
+      "scopes": [
+        "phone",
+        "README"
+      ],
+      "conventional": true
+    }
+  },
+  "overrides": {
+    "find-node-modules": "$find-node-modules",
+    "js-yaml": "^5.4.3",
+    "inquirer": "^8.2.7",
+    "tmp": "^0.2.7"
   }
 }
