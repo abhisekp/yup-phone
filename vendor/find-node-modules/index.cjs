@@ -9,7 +9,7 @@ module.exports = function findNodeModules(options = {}) {
   if (
     typeof name !== 'string' ||
     !name ||
-    /[\\/{}*?\[\]]/u.test(name) ||
+    /[\\/{}*?[\]]/u.test(name) ||
     name === '..' ||
     name === '.'
   ) {

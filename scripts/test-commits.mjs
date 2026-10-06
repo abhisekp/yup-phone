@@ -90,36 +90,41 @@ for (const invalid of [
   'feat:',
   'unknown: value',
   ':unknown: change',
-  'feat: ' + 'a'.repeat(121),
+  `feat: ${'a'.repeat(121)}`,
 ]) {
   assert.throws(() => lint(invalid));
 }
 
 // Run the real cz-emoji prompts with deterministic answers, without a Git commit.
-const prompt = async () => ({
-  type: { name: 'feature', emoji: ':sparkles:' },
-  scope: 'phone',
-  subject: 'add validator',
-  body: '',
-  breakingBody: '',
-  issues: '',
-});
-prompt.registerPrompt = () => {};
+const prompt = () =>
+  Promise.resolve({
+    type: { name: 'feature', emoji: ':sparkles:' },
+    scope: 'phone',
+    subject: 'add validator',
+    body: '',
+    breakingBody: '',
+    issues: '',
+  });
+const registeredPrompts = new Set();
+prompt.registerPrompt = (name, constructor) => {
+  assert.equal(typeof constructor, 'function');
+  registeredPrompts.add(name);
+};
 const columns = Object.getOwnPropertyDescriptor(process.stdout, 'columns');
 Object.defineProperty(process.stdout, 'columns', {
   value: 120,
   configurable: true,
 });
-let prompted;
 try {
-  prompted = await new Promise((resolve) =>
+  const prompted = await new Promise((resolve) =>
     adapter.prompter({ prompt }, resolve),
   );
+  assert.equal(prompted, 'feat(phone): :sparkles: add validator');
+  assert.deepEqual([...registeredPrompts], ['autocomplete', 'maxlength-input']);
 } finally {
   if (columns) Object.defineProperty(process.stdout, 'columns', columns);
   else delete process.stdout.columns;
 }
-assert.equal(prompted, 'feat(phone): :sparkles: add validator');
 console.log(
   `Commitlint and real cz-emoji adapter passed for ${config['cz-emoji'].types.length} retained categories.`,
 );
