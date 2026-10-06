@@ -1,40 +1,58 @@
 import assert from 'node:assert/strict';
-import { createHash } from 'node:crypto';
-import { readFile } from 'node:fs/promises';
 import { execFileSync } from 'node:child_process';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { verifyReleaseArtifact } from './release-artifact.mjs';
 
-const pkg = JSON.parse(await readFile('package.json', 'utf8'));
-const tarball = `yup-phone-${pkg.version}.tgz`;
-const integrity = `sha512-${createHash('sha512')
-  .update(await readFile(tarball))
-  .digest('base64')}`;
-const response = await fetch(
-  `https://registry.npmjs.org/yup-phone/${encodeURIComponent(pkg.version)}`,
-);
-if (response.ok) {
-  const existing = await response.json();
-  assert.equal(
-    existing.dist?.integrity,
-    integrity,
-    'This npm version already exists with different package contents',
+/** Publish only a verified tarball, or confirm an identical earlier publication. */
+export async function publishRelease({
+  directory = path.resolve('.release-artifacts'),
+  repository = process.cwd(),
+  tag = process.env.RELEASE_TAG,
+  expectedDigest = process.env.RELEASE_MANIFEST_SHA256,
+  fetchRegistry = fetch,
+  runPublish = (args) => {
+    assert(process.env.npm_execpath, 'Run through npm run release:publish');
+    execFileSync(process.execPath, [process.env.npm_execpath, ...args], {
+      stdio: 'inherit',
+    });
+  },
+} = {}) {
+  const release = await verifyReleaseArtifact({
+    directory,
+    repository,
+    tag,
+    expectedDigest,
+  });
+  const response = await fetchRegistry(
+    `https://registry.npmjs.org/yup-phone/${encodeURIComponent(release.version)}`,
   );
-  console.log(
-    `yup-phone@${pkg.version} already published with the same integrity; continuing artifact upload.`,
-  );
-} else {
-  assert.equal(response.status, 404, 'Could not verify npm release state');
-  assert(process.env.npm_execpath, 'Run through npm run release:publish');
-  execFileSync(
-    process.execPath,
-    [
-      process.env.npm_execpath,
+  if (response.ok) {
+    const existing = await response.json();
+    assert.equal(
+      existing.dist?.integrity,
+      release.integrity,
+      'This npm version already exists with different package contents',
+    );
+    console.log(
+      `yup-phone@${release.version} already published with the same integrity; continuing artifact upload.`,
+    );
+  } else {
+    assert.equal(response.status, 404, 'Could not verify npm release state');
+    runPublish([
       'publish',
-      tarball,
+      release.tarball,
       '--provenance',
       '--access',
       'public',
       '--ignore-scripts',
-    ],
-    { stdio: 'inherit' },
-  );
+    ]);
+  }
+}
+
+if (
+  process.argv[1] &&
+  path.resolve(process.argv[1]) === fileURLToPath(import.meta.url)
+) {
+  await publishRelease();
 }

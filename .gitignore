@@ -259,5 +259,6 @@ out
 
 # End of https://www.toptal.com/developers/gitignore/api/git,node,visualstudiocode,intellij+all
 .build/
+.release-artifacts/
 
 # Distribution bundles are deliberately tracked for direct repository consumers.
