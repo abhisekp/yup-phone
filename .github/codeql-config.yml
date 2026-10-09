@@ -1,0 +1,4 @@
+name: yup-phone
+paths-ignore:
+  - benchmarks/fixtures
+  - dist

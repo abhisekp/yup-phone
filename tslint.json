@@ -1,6 +1,0 @@
-{
-  "linterOptions": {
-    "exclude": ["dist", "node_modules"]
-  },
-  "extends": "tslint-config-airbnb-base"
-}

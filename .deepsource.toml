@@ -2,12 +2,16 @@ version = 1
 
 test_patterns = [
     "src/test/**",
-    "src/**/*.test.ts"
+    "src/**/*.test.ts",
+    "tests/**",
+    "benchmarks/**"
 ]
 
 exclude_patterns = [
     "**/dist/**",
-    "**/node_modules/**"
+    "**/node_modules/**",
+    ".build/**",
+    "benchmarks/fixtures/**"
 ]
 
 [[analyzers]]
