@@ -85,7 +85,6 @@
     "@rollup/plugin-terser": "^1.0.0",
     "@types/jest": "^30.0.0",
     "@types/node": "^26.6.4",
-    "commitizen": "^4.3.2",
     "cz-emoji": "^1.3.2-canary.2",
     "esbuild": "^0.28.2",
     "google-libphonenumber": "^3.2.47",
@@ -94,8 +93,7 @@
     "prettier": "^3.9.9",
     "rollup": "^4.64.0",
     "typescript": "^7.0.2",
-    "yup": "^1.7.1",
-    "find-node-modules": "file:vendor/find-node-modules"
+    "yup": "^1.7.1"
   },
   "config": {
     "commitizen": {
@@ -264,7 +262,6 @@
     }
   },
   "overrides": {
-    "find-node-modules": "$find-node-modules",
     "js-yaml": "^5.4.3",
     "inquirer": "^8.2.7",
     "tmp": "^0.2.7"
