@@ -2,41 +2,11 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import { createRequire } from 'node:module';
 import path from 'node:path';
-import { mkdirSync, rmSync } from 'node:fs';
-import { generatedPath } from './paths.mjs';
 
 const require = createRequire(import.meta.url);
 const adapter = require('./commitizen-adapter.cjs');
 const { config } = require('../package.json');
 const cli = path.resolve('node_modules/@commitlint/cli/cli.js');
-const findModules = require('find-node-modules');
-const commitizenAdapter = require('commitizen/dist/commitizen/adapter');
-assert.equal(
-  commitizenAdapter.resolveAdapterPath(config.commitizen.path),
-  path.resolve('scripts/commitizen-adapter.cjs'),
-);
-const fixture = generatedPath('.build/commit-tests');
-mkdirSync(path.join(fixture, 'node_modules'), { recursive: true });
-mkdirSync(path.join(fixture, 'nested/node_modules'), { recursive: true });
-mkdirSync(path.join(fixture, 'nested/child'), { recursive: true });
-try {
-  const cwd = path.join(fixture, 'nested/child');
-  assert.deepEqual(findModules({ cwd }).slice(0, 2), [
-    path.join('..', 'node_modules'),
-    path.join('../..', 'node_modules'),
-  ]);
-  assert.deepEqual(findModules(cwd), findModules({ cwd }));
-  assert.deepEqual(findModules({ cwd, relative: false }).slice(0, 2), [
-    path.join(fixture, 'nested/node_modules'),
-    path.join(fixture, 'node_modules'),
-  ]);
-  assert.throws(
-    () => findModules({ cwd, searchFor: '{'.repeat(10000) }),
-    TypeError,
-  );
-} finally {
-  rmSync(fixture, { recursive: true, force: true });
-}
 
 /** Exercise commitlint with a message without creating any Git commit. */
 function lint(message) {

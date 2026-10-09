@@ -94,8 +94,22 @@ calls are simulated, so these tests never publish a package.
 
 ## Commit formatting and checked-in builds
 
-Use `npm run commit` for the retained Commitizen/cz-emoji menus. All original
-emoji categories and scopes remain in package.json. The small adapter translates
+Developers who want the Commitizen/cz-emoji menus install the
+[Commitizen CLI](https://github.com/commitizen/cz-cli#installing-the-command-line-tool)
+globally, then run it from the repository:
+
+```sh
+npm install --global commitizen
+npm run commit
+```
+
+Commitizen is optional developer tooling and is not installed by `npm ci` or CI.
+The `commit` script uses the developer's `cz` executable on PATH. The project's
+adapter and cz-emoji dependency remain local so the menus and configuration are
+shared. Developers can also create commits directly with `git commit`.
+
+All original emoji categories and scopes remain in package.json. The small
+adapter translates
 aliases such as feature to feat and refactoring to refactor, retaining the emoji,
 so Release Please recognizes the change. The breaking category emits a major
 release marker. Conventional headers and historical Gitmoji headers both pass
@@ -105,9 +119,7 @@ hook, and `npm run prepare` installs it after a scripts-disabled checkout.
 
 Development requires Node 22.12+ for current commitlint. The library's production
 runtime requirement remains Node 18+. The audited overrides patch development
-dependency paths. The repository-local module-directory walker replaces an
-unpatched glob-parser path in Commitizen; its supported API and rationale are
-documented under vendor/find-node-modules. No audit findings are ignored.
+dependency paths. No audit findings are ignored.
 
 Distribution files are tracked under dist/. CI rebuilds and verifies them. The
 Refresh dist workflow builds with a read-only token, then a separate job commits
