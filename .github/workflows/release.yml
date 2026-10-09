@@ -42,7 +42,7 @@ jobs:
       released: ${{ steps.release.outputs.release_created }}
       tag: ${{ steps.release.outputs.tag_name }}
     steps:
-      - uses: googleapis/release-please-action@8b8fd2cc23b2e18957157a9d923d75aa0c6f6ad5 # v4
+      - uses: googleapis/release-please-action@5c625bfb5d1ff62eadeeb3772007f7f66fdcf071 # v4
         id: release
         with:
           config-file: release-please-config.json
@@ -92,7 +92,7 @@ jobs:
         env:
           RELEASE_TAG: ${{ inputs.tag || needs.release.outputs.tag }}
         run: npm run release:prepare
-      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+      - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: tested-release
           path: .release-artifacts/*
