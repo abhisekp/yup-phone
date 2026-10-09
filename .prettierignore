@@ -7,3 +7,7 @@ package-lock.json
 src/yup-phone.test.ts
 benchmarks/results
 benchmarks/fixtures
+
+# Release Please owns the formatting of these generated release files.
+CHANGELOG.md
+.release-please-manifest.json
