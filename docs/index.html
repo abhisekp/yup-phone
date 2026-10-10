@@ -1,0 +1,754 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Phone validation that fits your Yup schema. Explore yup-phone v2 with a live playground, examples, and a small, familiar API."
+    />
+    <meta name="theme-color" content="#f7f8fc" />
+    <meta property="og:title" content="yup-phone — Phone numbers. Validated." />
+    <meta
+      property="og:description"
+      content="A small Yup plugin with global reach. Try phone validation right in your browser."
+    />
+    <meta property="og:type" content="website" />
+    <link rel="canonical" href="https://yup-phone.js.org/" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/site.css" />
+    <title>yup-phone — Phone numbers. Validated.</title>
+    <script>
+      try {
+        const saved = localStorage.getItem('yup-phone-theme');
+        document.documentElement.dataset.theme =
+          saved ||
+          (matchMedia('(prefers-color-scheme: dark)').matches
+            ? 'dark'
+            : 'light');
+      } catch {}
+    </script>
+    <script src="assets/playground.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="header">
+      <div class="shell navigation">
+        <a class="brand" href="./" aria-label="yup-phone home"
+          ><span class="brand-mark" aria-hidden="true">y.</span>yup-phone<span
+            class="version"
+            data-version
+            >v2</span
+          ></a
+        >
+        <nav aria-label="Main navigation">
+          <a href="#playground">Playground</a>
+          <a href="#get-started">Get started</a>
+          <a href="#reference">API</a>
+          <a href="#questions">FAQ</a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            id="theme-toggle"
+            class="icon-button"
+            type="button"
+            aria-label="Switch color theme"
+            hidden
+          >
+            <span aria-hidden="true">◐</span>
+          </button>
+          <a
+            class="github-link"
+            href="https://github.com/abhisekp/yup-phone"
+            aria-label="GitHub repository"
+            ><svg aria-hidden="true" viewBox="0 0 24 24">
+              <path
+                fill="currentColor"
+                d="M12 .7a11.5 11.5 0 0 0-3.64 22.41c.57.1.78-.25.78-.56v-2.15c-3.2.69-3.88-1.36-3.88-1.36-.52-1.33-1.28-1.68-1.28-1.68-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.76 2.7 1.25 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.25.45-2.28 1.18-3.08-.12-.29-.51-1.46.11-3.04 0 0 .96-.31 3.16 1.18a11 11 0 0 1 5.75 0c2.2-1.49 3.15-1.18 3.15-1.18.63 1.58.24 2.75.12 3.04.73.8 1.18 1.83 1.18 3.08 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.79.56A11.5 11.5 0 0 0 12 .7Z"
+              /></svg
+            ><span>GitHub</span><span aria-hidden="true">↗</span></a
+          >
+        </div>
+      </div>
+    </header>
+    <main id="main">
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <a
+            class="announcement"
+            href="https://github.com/abhisekp/yup-phone/releases/tag/v2.0.0"
+            ><span class="status-dot"></span> Meet v2. Smaller bundle. Same
+            familiar API. <span aria-hidden="true">↗</span></a
+          >
+          <p class="eyebrow">A SMALL PLUGIN. A WORLD OF NUMBERS.</p>
+          <h1 id="hero-title">Phone numbers.<br /><span>Validated.</span></h1>
+          <p class="hero-description">
+            Give your Yup schemas a phone check that understands the world. One
+            method, familiar chaining, and full phone metadata.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#get-started"
+              >Start building <span aria-hidden="true">↗</span></a
+            ><a class="button quiet" href="#playground"
+              >Try it live <span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <div class="install-bar">
+            <span class="prompt" aria-hidden="true">$</span
+            ><code id="hero-install">npm install yup yup-phone</code
+            ><button
+              class="copy-button"
+              data-copy="hero-install"
+              type="button"
+              aria-label="Copy installation command"
+              hidden
+            >
+              Copy
+            </button>
+          </div>
+          <div class="hero-notes">
+            <span
+              ><span class="tiny-check" aria-hidden="true">✓</span> Yup 0.32 +
+              1.x</span
+            ><span
+              ><span class="tiny-check" aria-hidden="true">✓</span> TypeScript
+              ready</span
+            ><span
+              ><span class="tiny-check" aria-hidden="true">✓</span> MIT
+              licensed</span
+            >
+          </div>
+        </div>
+        <div
+          id="playground"
+          class="playground"
+          aria-labelledby="playground-title"
+        >
+          <div class="panel-heading">
+            <div>
+              <p class="eyebrow">THE PLAYGROUND</p>
+              <h2 id="playground-title">Try a phone number.</h2>
+            </div>
+            <span class="live-label"
+              ><span class="status-dot"></span> Live</span
+            >
+          </div>
+          <noscript
+            ><p class="notice">
+              Enable JavaScript to use the live playground. The installation
+              examples and API below remain available.
+            </p></noscript
+          >
+          <div id="phone-form">
+            <label class="field-label" for="phone-input">Phone number</label>
+            <input
+              id="phone-input"
+              name="phone"
+              type="tel"
+              value="(415) 555-2671"
+              autocomplete="off"
+              spellcheck="false"
+              aria-describedby="phone-hint validation-result"
+            />
+            <p class="field-hint" id="phone-hint">
+              National, international, formatted, or vanity. Try them all.
+            </p>
+            <div class="form-grid">
+              <div>
+                <label class="field-label" for="country-select">Region</label
+                ><select id="country-select" name="country">
+                  <option value="US">United States (US)</option>
+                  <option value="IN">India (IN)</option>
+                  <option value="GB">United Kingdom (GB)</option>
+                </select>
+              </div>
+              <div class="mode-field">
+                <span class="field-label">Validation mode</span
+                ><label class="switch-label" for="strict-input"
+                  ><input id="strict-input" type="checkbox" checked /><span
+                    class="switch-track"
+                    aria-hidden="true"
+                  ></span
+                  ><span>Strict region</span></label
+                >
+              </div>
+            </div>
+            <p id="mode-hint" class="field-hint">
+              Require the number to match the selected region.
+            </p>
+            <div class="sample-row" aria-label="Example phone numbers">
+              <span>Try:</span
+              ><button type="button" data-example="us">US number</button
+              ><button type="button" data-example="international">
+                International</button
+              ><button type="button" data-example="vanity">Vanity</button
+              ><button type="button" data-example="invalid">Invalid</button>
+            </div>
+            <label class="optional-label"
+              ><input id="optional-input" type="checkbox" /><span
+                >Allow empty values <span class="opt-in">opt-in</span></span
+              ></label
+            >
+            <p class="optional-hint">
+              Uses a lazy schema. The default phone check rejects empty values.
+            </p>
+          </div>
+          <div
+            id="validation-result"
+            class="result"
+            data-state="loading"
+            role="status"
+            aria-live="polite"
+            aria-atomic="true"
+          >
+            <span id="result-icon" class="result-icon" aria-hidden="true"
+              >…</span
+            >
+            <div>
+              <strong id="result-title">Loading validator…</strong>
+              <p id="result-description">
+                The demo runs locally in your browser.
+              </p>
+            </div>
+          </div>
+          <div class="demo-code-heading">
+            <span>Your schema</span
+            ><button
+              class="copy-button"
+              type="button"
+              data-copy="live-code"
+              aria-label="Copy playground schema"
+              hidden
+            >
+              Copy schema
+            </button>
+          </div>
+          <pre
+            class="demo-code"
+          ><code id="live-code">yup.string().phone('US', true)</code></pre>
+          <div class="playground-footer">
+            <span class="privacy-note"
+              ><span aria-hidden="true">◈</span> Your input stays in your
+              browser.</span
+            ><span data-runtime>yup-phone v2</span>
+          </div>
+        </div>
+      </section>
+      <section class="capabilities shell" aria-label="Package capabilities">
+        <div>
+          <span class="capability-icon" aria-hidden="true">↔</span>
+          <p>
+            <strong>Fits your existing schema</strong
+            ><span>Yup 0.32.11 and 1.x, with chainable types.</span>
+          </p>
+        </div>
+        <div>
+          <span class="capability-icon" aria-hidden="true">◎</span>
+          <p>
+            <strong>Beyond a regular expression</strong
+            ><span>Country rules from libphonenumber-js/max.</span>
+          </p>
+        </div>
+        <div>
+          <span class="capability-icon" aria-hidden="true">⌘</span>
+          <p>
+            <strong>Works where you build</strong
+            ><span>ESM, CommonJS, UMD, and TypeScript.</span>
+          </p>
+        </div>
+      </section>
+      <section
+        id="get-started"
+        class="section shell"
+        aria-labelledby="start-title"
+      >
+        <div class="section-intro">
+          <div>
+            <p class="eyebrow">FROM INSTALL TO VALIDATION</p>
+            <h2 id="start-title">A familiar fit.<br />A tiny API.</h2>
+          </div>
+          <p>
+            Import the plugin once, then add <code>.phone()</code> to your
+            string schema. Yup stays your application’s peer dependency.
+          </p>
+        </div>
+        <div class="start-grid">
+          <div class="install-card">
+            <span class="step-label">01 / INSTALL</span>
+            <h3>Add it to your project.</h3>
+            <div
+              class="tabs install-tabs"
+              role="tablist"
+              aria-label="Package manager"
+            >
+              <button
+                id="install-npm"
+                type="button"
+                role="tab"
+                aria-controls="install-panel"
+                aria-selected="true"
+                data-install="npm"
+              >
+                npm</button
+              ><button
+                id="install-pnpm"
+                type="button"
+                role="tab"
+                aria-controls="install-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-install="pnpm"
+              >
+                pnpm</button
+              ><button
+                id="install-yarn"
+                type="button"
+                role="tab"
+                aria-controls="install-panel"
+                aria-selected="false"
+                tabindex="-1"
+                data-install="yarn"
+              >
+                yarn
+              </button>
+            </div>
+            <div
+              id="install-panel"
+              role="tabpanel"
+              aria-labelledby="install-npm"
+              tabindex="0"
+              class="install-command"
+            >
+              <code id="install-command">npm install yup yup-phone</code
+              ><button
+                class="copy-button"
+                type="button"
+                data-copy="install-command"
+                aria-label="Copy package manager command"
+                hidden
+              >
+                Copy
+              </button>
+            </div>
+            <p class="field-hint">Already using Yup 0.32? Keep it:</p>
+            <code class="legacy-command"
+              >npm install yup@0.32.11 yup-phone@2</code
+            ><a class="text-link" href="https://www.npmjs.com/package/yup-phone"
+              >View on npm <span aria-hidden="true">↗</span></a
+            >
+          </div>
+          <div class="quickstart">
+            <div class="quickstart-heading">
+              <span class="step-label">02 / USE IT</span
+              ><button
+                class="copy-button"
+                type="button"
+                id="copy-quickstart"
+                aria-label="Copy selected quickstart example"
+                hidden
+              >
+                Copy example
+              </button>
+            </div>
+            <div
+              class="tabs code-tabs"
+              role="tablist"
+              aria-label="Module format"
+            >
+              <button
+                id="tab-esm"
+                type="button"
+                role="tab"
+                aria-controls="code-esm"
+                aria-selected="true"
+                data-code-tab="esm"
+              >
+                ES modules</button
+              ><button
+                id="tab-cjs"
+                type="button"
+                role="tab"
+                aria-controls="code-cjs"
+                aria-selected="false"
+                tabindex="-1"
+                data-code-tab="cjs"
+              >
+                CommonJS</button
+              ><button
+                id="tab-ts"
+                type="button"
+                role="tab"
+                aria-controls="code-ts"
+                aria-selected="false"
+                tabindex="-1"
+                data-code-tab="ts"
+              >
+                TypeScript
+              </button>
+            </div>
+            <div
+              id="code-esm"
+              class="code-panel"
+              role="tabpanel"
+              aria-labelledby="tab-esm"
+              tabindex="0"
+            >
+              <pre><code><span class="token-keyword">import</span> * as yup <span class="token-keyword">from</span> <span class="token-string">'yup'</span>;
+<span class="token-keyword">import</span> <span class="token-string">'yup-phone'</span>;
+
+<span class="token-keyword">const</span> phone = yup.string().phone(<span class="token-string">'US'</span>, <span class="token-boolean">true</span>);
+
+phone.isValidSync(<span class="token-string">'(415) 555-2671'</span>);
+<span class="token-comment">// → true. That’s it.</span></code></pre>
+            </div>
+            <div
+              id="code-cjs"
+              class="code-panel"
+              role="tabpanel"
+              aria-labelledby="tab-cjs"
+              tabindex="0"
+              hidden
+            >
+              <pre><code><span class="token-keyword">const</span> yup = require(<span class="token-string">'yup'</span>);
+require(<span class="token-string">'yup-phone'</span>);
+
+<span class="token-keyword">const</span> phone = yup.string().phone(<span class="token-string">'US'</span>, <span class="token-boolean">true</span>);
+
+phone.isValidSync(<span class="token-string">'(415) 555-2671'</span>);
+<span class="token-comment">// → true. Same API, different import.</span></code></pre>
+            </div>
+            <div
+              id="code-ts"
+              class="code-panel"
+              role="tabpanel"
+              aria-labelledby="tab-ts"
+              tabindex="0"
+              hidden
+            >
+              <pre><code><span class="token-keyword">import</span> * as yup <span class="token-keyword">from</span> <span class="token-string">'yup'</span>;
+<span class="token-keyword">import</span> <span class="token-string">'yup-phone'</span>;
+
+<span class="token-keyword">const</span> schema = yup.object({
+  phone: yup.string().required().phone(<span class="token-string">'US'</span>, <span class="token-boolean">true</span>),
+});
+
+<span class="token-keyword">type</span> Contact = yup.InferType&lt;<span class="token-keyword">typeof</span> schema&gt;;
+<span class="token-comment">// { phone: string } — types stay intact.</span></code></pre>
+            </div>
+            <p class="code-note">
+              <span aria-hidden="true">✓</span> Side-effect import. Familiar Yup
+              chaining. Built-in declarations.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section
+        id="reference"
+        class="section reference-section"
+        aria-labelledby="api-title"
+      >
+        <div class="shell">
+          <div class="section-intro">
+            <div>
+              <p class="eyebrow">THE ENTIRE PHONE API</p>
+              <h2 id="api-title">Three arguments.<br />You’re in control.</h2>
+            </div>
+            <p>
+              Choose a parsing region, decide how strictly to match it, and
+              customize your error message.
+            </p>
+          </div>
+          <div class="signature">
+            <code
+              >schema.phone(<span>countryCode?</span>, <span>strict?</span>,
+              <span>errorMessage?</span>)</code
+            ><span class="signature-note">Returns the same schema</span>
+          </div>
+          <div class="api-grid">
+            <article class="api-card">
+              <span class="argument-number">01</span>
+              <h3>countryCode</h3>
+              <p class="argument-type">string · default <code>'IN'</code></p>
+              <p>
+                The parsing region for national numbers. International numbers
+                keep their own calling code.
+              </p>
+              <code>.phone('GB')</code>
+            </article>
+            <article class="api-card">
+              <span class="argument-number">02</span>
+              <h3>strict</h3>
+              <p class="argument-type">boolean · default <code>false</code></p>
+              <p>
+                When enabled, checks the selected region’s rules and calling
+                code. Loose mode accepts valid international numbers.
+              </p>
+              <code>.phone('US', true)</code>
+            </article>
+            <article class="api-card">
+              <span class="argument-number">03</span>
+              <h3>errorMessage</h3>
+              <p class="argument-type">string · optional</p>
+              <p>
+                Your own Yup error message, with support for path interpolation.
+              </p>
+              <code>.phone('US', true, 'Invalid phone')</code>
+            </article>
+          </div>
+          <div class="reference-link">
+            <p>
+              Need optional fields, default-country rules, or browser-script
+              setup?
+            </p>
+            <a
+              class="text-link"
+              href="https://github.com/abhisekp/yup-phone/blob/master/docs/guide.md"
+              >Read the complete guide <span aria-hidden="true">↗</span></a
+            >
+          </div>
+        </div>
+      </section>
+      <section
+        class="section shell benchmark-section"
+        aria-labelledby="benchmark-title"
+      >
+        <div>
+          <p class="eyebrow">LESS TO SHIP</p>
+          <h2 id="benchmark-title">
+            A lighter bundle.<br />Full phone metadata.
+          </h2>
+          <p>
+            The v2 migration reduced the minified UMD gzip footprint by about
+            <strong>55%</strong>, while retaining max metadata and the original
+            validation tests.
+          </p>
+          <a
+            class="text-link"
+            href="https://github.com/abhisekp/yup-phone/releases/download/v2.0.0/latest.md"
+            >Explore the measured benchmarks
+            <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="benchmark-card">
+          <div class="benchmark-heading">
+            <strong>Minified UMD · gzip</strong><span>v2.0.0 release</span>
+          </div>
+          <div class="bar-label"><span>v1.3.2</span><span>111.6 kB</span></div>
+          <div class="bar-track">
+            <div class="bar old-bar" style="width: 100%"></div>
+          </div>
+          <div class="bar-label">
+            <span>v2.0.0</span><strong>49.7 kB</strong>
+          </div>
+          <div class="bar-track">
+            <div class="bar new-bar" style="width: 44.57%"></div>
+          </div>
+          <p>
+            Measured artifact sizes, not a guarantee of faster validation for
+            every workload. The full report includes timing results.
+          </p>
+        </div>
+      </section>
+      <section
+        id="questions"
+        class="section shell faq-section"
+        aria-labelledby="faq-title"
+      >
+        <div>
+          <p class="eyebrow">THE USEFUL DETAILS</p>
+          <h2 id="faq-title">A few things<br />worth knowing.</h2>
+          <a
+            class="text-link"
+            href="https://github.com/abhisekp/yup-phone/issues"
+            >Ask a question <span aria-hidden="true">↗</span></a
+          >
+        </div>
+        <div class="faq-list">
+          <details>
+            <summary>Does v2 work with my existing Yup version?</summary>
+            <p>
+              Yes, the declared peer range is <code>^0.32.11 || ^1.0.0</code>.
+              The original phone tests remain unchanged. Version 2 requires Node
+              18+ and modern browsers with ES2020 support.
+            </p>
+          </details>
+          <details>
+            <summary>What is the difference between strict and loose?</summary>
+            <p>
+              Loose mode uses the region to parse national numbers, while
+              allowing valid international numbers from other regions. Strict
+              mode additionally checks the selected region’s rules and calling
+              code. Try the International example, then toggle Strict region in
+              the playground.
+            </p>
+          </details>
+          <details>
+            <summary>How do I make a phone field optional?</summary>
+            <p>
+              The default phone check still rejects empty strings, undefined,
+              and null. To allow blank values, apply it only when a value is
+              present:
+            </p>
+            <pre><code>const optionalPhone = yup.lazy((value) =>
+  value == null || value === ''
+    ? yup.string().nullable()
+    : yup.string().phone('US')
+);</code></pre>
+            <p>
+              The playground’s Allow empty values option demonstrates this
+              explicit workaround.
+            </p>
+          </details>
+          <details>
+            <summary>Why is .phone missing from my schema?</summary>
+            <p>
+              Import <code>'yup-phone'</code> before constructing the schema,
+              and keep one supported Yup instance in your application. The
+              package registers its method on your application’s peer
+              dependency. TypeScript users should use Yup’s built-in
+              declarations and remove obsolete <code>@types/yup</code>.
+            </p>
+          </details>
+          <details>
+            <summary>How do I keep my required-field error message?</summary>
+            <p>Put required before phone:</p>
+            <pre><code>yup.string()
+  .required('Phone is required')
+  .phone('US');</code></pre>
+            <p>
+              This order makes the required message win for an empty string.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Where can I find release and security information?
+            </summary>
+            <p>
+              See the
+              <a href="https://github.com/abhisekp/yup-phone/releases"
+                >releases and benchmark artifacts</a
+              >
+              and the
+              <a
+                href="https://github.com/abhisekp/yup-phone/blob/master/docs/releasing.md"
+                >release setup guide</a
+              >. GitHub Actions checks compatibility, package formats,
+              dependency audits, and CodeQL. Versioned npm releases include
+              provenance.
+            </p>
+          </details>
+        </div>
+      </section>
+      <section class="closing shell">
+        <span class="brand-mark" aria-hidden="true">y.</span>
+        <div>
+          <h2>One more check.<br />A better form.</h2>
+          <p>Add phone validation to the Yup schemas you already know.</p>
+        </div>
+        <a class="button primary" href="#get-started"
+          >Get started <span aria-hidden="true">↗</span></a
+        >
+      </section>
+    </main>
+    <footer class="footer shell">
+      <div class="footer-main">
+        <a class="brand" href="./"
+          ><span class="brand-mark" aria-hidden="true">y.</span>yup-phone</a
+        >
+        <p>Open source. Built for the forms you build.</p>
+        <div>
+          <a href="https://github.com/abhisekp/yup-phone">GitHub</a
+          ><a href="https://www.npmjs.com/package/yup-phone">npm</a
+          ><a href="https://github.com/abhisekp/yup-phone/blob/master/LICENSE"
+            >MIT License</a
+          >
+        </div>
+      </div>
+      <details class="project-badges">
+        <summary>Project checks &amp; community</summary>
+        <div class="badge-list">
+          <a href="https://github.com/abhisekp/yup-phone/blob/master/LICENSE"
+            ><img
+              loading="lazy"
+              alt="MIT License"
+              src="https://img.shields.io/badge/-MIT-56A902.svg?style=flat-square&amp;maxAge=2592000"
+          /></a>
+          <a href="https://www.npmjs.com/package/yup-phone"
+            ><img
+              loading="lazy"
+              alt="npm - yup-phone"
+              src="https://img.shields.io/npm/v/yup-phone"
+          /></a>
+          <a
+            href="https://twitter.com/intent/tweet?text=Try%20yup-phone%20for%20Yup%20phone%20validation&amp;url=https%3A%2F%2Fyup-phone.js.org"
+            ><img
+              loading="lazy"
+              alt="Share yup-phone on X"
+              src="https://img.shields.io/badge/share-on%20X-000000?logo=x&amp;logoColor=white"
+          /></a>
+          <a
+            href="https://github.com/abhisekp/yup-phone/actions/workflows/ci.yml"
+            ><img
+              loading="lazy"
+              alt="Build Status"
+              src="https://github.com/abhisekp/yup-phone/actions/workflows/ci.yml/badge.svg"
+          /></a>
+          <a href="https://commitizen.github.io/cz-cli/"
+            ><img
+              loading="lazy"
+              alt="Commitizen friendly"
+              src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg"
+          /></a>
+          <a
+            href="https://app.fossa.io/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone?ref=badge_shield"
+            ><img
+              loading="lazy"
+              alt="FOSSA Status"
+              src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone.svg?type=shield"
+          /></a>
+          <a
+            href="https://snyk.io/test/github/abhisekp/yup-phone?targetFile=package.json"
+            ><img
+              loading="lazy"
+              alt="Known Vulnerabilities"
+              src="https://snyk.io/test/github/abhisekp/yup-phone/badge.svg?targetFile=package.json"
+          /></a>
+          <a
+            href="https://app.codacy.com/manual/abhisekp/yup-phone?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=abhisekp/yup-phone&amp;utm_campaign=Badge_Grade_Settings"
+            ><img
+              loading="lazy"
+              alt="Codacy Badge"
+              src="https://api.codacy.com/project/badge/Grade/2bbf03ae96ad4a75ba09ea1418021fe5"
+          /></a>
+          <a
+            href="https://app.fossa.io/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone?ref=badge_large"
+            ><img
+              loading="lazy"
+              class="license-badge"
+              alt="FOSSA License Status"
+              src="https://app.fossa.io/api/projects/git%2Bgithub.com%2Fabhisekp%2Fyup-phone.svg?type=large"
+          /></a>
+        </div>
+      </details>
+      <div class="footer-bottom">
+        <span
+          >Maintained by
+          <a href="https://github.com/abhisekp">Abhisek Pattnaik</a> &amp;
+          contributors.</span
+        ><span
+          >Powered by
+          <a href="https://github.com/catamphetamine/libphonenumber-js"
+            >libphonenumber-js</a
+          >
+          + <a href="https://github.com/jquense/yup">Yup</a>.</span
+        >
+      </div>
+    </footer>
+    <div
+      id="copy-feedback"
+      class="copy-feedback"
+      role="status"
+      aria-live="polite"
+    ></div>
+  </body>
+</html>

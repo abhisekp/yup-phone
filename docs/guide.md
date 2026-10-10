@@ -1,8 +1,3 @@
----
-layout: default
-title: yup-phone
----
-
 # yup-phone [![MIT License](https://img.shields.io/badge/-MIT-56A902.svg?style=flat-square&maxAge=2592000 'MIT License')](https://github.com/abhisekp/yup-phone/blob/master/LICENSE) [![npm - yup-phone](https://img.shields.io/npm/v/yup-phone)](https://www.npmjs.com/package/yup-phone 'yup-phone npm') [![Tweet yup-phone validator](https://img.shields.io/badge/share-on%20X-000000?logo=x&logoColor=white 'Tweet yup-phone validator')](https://twitter.com/intent/tweet?text=Are+you+still+validating+phone+numbers+using+regex%3F%0D%0AUse+%40npmjs+module+for+adding+phone+number+validation+%23yup+%23yupphone+%0D%0A%0D%0A%60npm+install+-S+yup+yup-phone%60+%E2%98%8E%EF%B8%8F%0D%0A%0D%0A&hashtags=javascript,Nodejs,validation,regex,npm,phone&via=abhisek&related=abhisek%3ADeveloper,npmjs&url=https://www.npmjs.com/package/yup-phone)
 
 [![Build Status](https://github.com/abhisekp/yup-phone/actions/workflows/ci.yml/badge.svg)](https://github.com/abhisekp/yup-phone/actions/workflows/ci.yml)

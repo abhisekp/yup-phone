@@ -53,6 +53,7 @@
   },
   "scripts": {
     "build": "node scripts/build.mjs",
+    "build:docs": "node scripts/build-docs.mjs",
     "test": "jest --runInBand",
     "test:types": "tsc --singleThreaded --noEmit -p tests/types/tsconfig.json",
     "test:package": "node scripts/test-package.mjs",

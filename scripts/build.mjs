@@ -60,3 +60,5 @@ await writeFile(
   'dist/yup-phone.esm.d.mts',
   "import './index.js';\nexport {};\n",
 );
+// Keep the self-hosted Pages playground in sync with the package and Yup versions.
+await import('./build-docs.mjs');
