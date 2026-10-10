@@ -126,8 +126,30 @@ Refresh dist workflow builds with a read-only token, then a separate job commits
 only generated bundles for branches in this repository. That job executes no
 project scripts and dispatches CI/CodeQL on the new commit, because GitHub's
 default token suppresses ordinary push-triggered workflows. Fork contributors
-can run `npm run build` and include dist/ in their own commits. The workflow can
-also be dispatched for a named repository branch.
+can run `npm run build` and include the generated files in their own commits.
+The workflow can also be dispatched for a named repository branch.
+
+## GitHub Pages
+
+The website is served from master under `/docs`, using the existing
+`yup-phone.js.org` custom domain. The `.nojekyll` file makes the HTML, styles, and
+scripts deploy as static files. Changes go live when their PR is merged into
+master; no separate hosting service or credentials are needed.
+
+The playground bundles the actual phone validator, its locked Yup version, and
+phone metadata locally. It does not send entered numbers to a server. Rebuild
+and preview it with:
+
+```sh
+npm run build:docs
+python -m http.server 4187 --bind 127.0.0.1 --directory docs
+```
+
+Open `http://127.0.0.1:4187/` in a browser. The full `npm run build` also refreshes
+`docs/assets/playground.js`. CI checks this generated file alongside dist/, and
+Refresh dist updates both when package versions or dependencies change. Include
+the regenerated asset in commits that change the playground source. The complete
+usage guide remains in `docs/guide.md`.
 
 The workflow security scanner flags the deliberate `pull_request_target` trigger
 and the unlocked Yup installation in the compatibility matrix. Refresh dist

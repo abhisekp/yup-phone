@@ -60,7 +60,7 @@ jobs:
       - run: npm audit --omit=dev --audit-level=low
       - run: npm run build
       - name: Verify checked-in distribution files
-        run: git diff --exit-code -- dist
+        run: git diff --exit-code -- dist docs/assets/playground.js
       - run: npm run benchmark
       - uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
