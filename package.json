@@ -58,6 +58,7 @@
     "test:types": "tsc --singleThreaded --noEmit -p tests/types/tsconfig.json",
     "test:package": "node scripts/test-package.mjs",
     "test:baseline": "node scripts/test-baseline.mjs",
+    "test:security": "node scripts/test-security.mjs",
     "typecheck": "tsc --singleThreaded --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -65,7 +66,7 @@
     "release:publish": "node scripts/publish.mjs",
     "release:prepare": "node scripts/prepare-release.mjs",
     "test:release": "node scripts/test-release.mjs",
-    "check": "npm run typecheck && npm run build && npm test && npm run test:types && npm run test:package && npm run test:commits && npm run test:release",
+    "check": "npm run typecheck && npm run build && npm run test:security && npm test && npm run test:types && npm run test:package && npm run test:commits && npm run test:release",
     "prepack": "npm run build",
     "preversion": "npm run check",
     "commit": "cz",
@@ -263,6 +264,7 @@
     }
   },
   "overrides": {
+    "deepmerge": "npm:@stackline/deepmerge@1.0.4",
     "js-yaml": "^5.4.3",
     "inquirer": "^8.2.7",
     "tmp": "^0.2.7"

@@ -121,6 +121,26 @@ Development requires Node 22.12+ for current commitlint. The library's productio
 runtime requirement remains Node 18+. The audited overrides patch development
 dependency paths. No audit findings are ignored.
 
+The `deepmerge` override uses the pinned, MIT-licensed, API-compatible
+`@stackline/deepmerge` package for Jest and Rollup. The original package has no
+published fix for
+[CVE-2026-93753](https://security.snyk.io/vuln/SNYK-JS-DEEPMERGE-19964053).
+`npm run test:security`, included in the normal check and release workflows,
+exercises the null-prototype, nested-null, own-key, and array-clone attack paths
+through each consumer's resolved implementation. It also checks that unsafe
+`tmp`, original `deepmerge`, and unpatched `sprintf-js` packages do not return to
+the lockfile. Keep the existing Inquirer/js-yaml overrides, which remove the
+obsolete `tmp` and `sprintf-js` dependency paths.
+
+Snyk's SCM scans can infer a different dependency graph when overrides are used.
+Compare reported versions with `npm ls --all` after `npm ci --ignore-scripts`.
+For the exact locked graph, authenticate the Snyk CLI and run
+`snyk test --dev --org=abhisekp --strict-out-of-sync=false`. The dev flag is
+required to include build and test tools; disabling strict range checks lets
+Snyk follow versions intentionally selected by npm overrides. No Snyk ignore
+rules are needed. See
+[Snyk's explanation of scan differences](https://github.com/snyk/user-docs/blob/main/scan-fix-and-prevent/scan-with-snyk/snyk-open-source/manage-vulnerabilities/differences-in-open-source-vulnerability-counts-across-environments.md).
+
 Distribution files are tracked under dist/. CI rebuilds and verifies them. The
 Refresh dist workflow builds with a read-only token, then a separate job commits
 only generated bundles for branches in this repository. That job executes no
